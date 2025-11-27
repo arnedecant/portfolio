@@ -44,6 +44,9 @@ export default defineNuxtConfig({
       routes: ['/'],
       // Then crawl all the links on the page
       crawlLinks: true
+    },
+    rollupConfig: {
+      external: ['sqlite3']
     }
   },
 
