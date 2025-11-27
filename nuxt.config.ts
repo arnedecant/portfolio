@@ -22,17 +22,37 @@ export default defineNuxtConfig({
     },
   },
 
+  content: {
+    experimental: {
+      nativeSqlite: true
+    }
+  },
+
+  studio: {
+    route: '/studio',
+    repository: {
+      provider: 'github',
+      owner: 'arnedecant',
+      repo: 'portfolio',
+      branch: 'main',
+    },
+  },
+
+  nitro: {
+    prerender: {
+      // Pre-render the homepage
+      routes: ['/'],
+      // Then crawl all the links on the page
+      crawlLinks: true
+    }
+  },
+
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@nuxt/image'
+    '@nuxt/image',
+    'nuxt-studio'
   ],
-
-  content: {
-    experimental: {
-      nativeSqlite: true
-    }
-  }
 })
