@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 
   content: {
     experimental: {
-      nativeSqlite: true
+      sqliteConnector: 'better-sqlite3'
     }
   },
 
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
       crawlLinks: true
     },
     rollupConfig: {
-      external: ['sqlite3']
+      external: ['better-sqlite3']
     }
   },
 
