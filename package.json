@@ -7,18 +7,24 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "clean": "rm -rf .nuxt .output node_modules"
   },
   "dependencies": {
-    "@nuxt/content": "3.8.2",
-    "@nuxt/eslint": "1.11.0",
-    "@nuxt/fonts": "0.12.1",
-    "@nuxt/icon": "2.1.0",
-    "@nuxt/image": "2.0.0",
+    "@nuxt/content": "^3.8.2",
+    "@nuxt/eslint": "^1.11.0",
+    "@nuxt/fonts": "^0.12.1",
+    "@nuxt/icon": "^2.1.0",
+    "@nuxt/image": "^2.0.0",
     "better-sqlite3": "^12.4.6",
     "eslint": "^9.39.1",
     "nuxt": "^4.2.1",
+    "nyx-kit": "^1.1.23",
     "vue": "^3.5.25",
-    "vue-router": "^4.6.3"
+    "vue-router": "^4.6.3",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.93.3"
   }
 }
