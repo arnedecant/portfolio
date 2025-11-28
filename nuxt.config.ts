@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   },
 
   studio: {
-    route: '/studio',
+    // route: '/studio',
     repository: {
       provider: 'github',
       owner: 'arnedecant',
@@ -40,10 +40,9 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      // Pre-render the homepage
       routes: ['/'],
-      // Then crawl all the links on the page
-      crawlLinks: true
+      crawlLinks: true,
+      ignore: ['/studio', '/studio/**', '/_studio', '/_studio/**', '/_nuxt_studio', '/_nuxt_studio/**']
     },
     rollupConfig: {
       external: ['better-sqlite3']
