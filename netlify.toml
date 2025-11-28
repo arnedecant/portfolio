@@ -1,10 +1,10 @@
 [build]
   command = "pnpm run build"
-  publish = ".output/public"
+  publish = "dist"
 
 [functions]
-  # Nuxt SSR functions will be in .output/server
-  directory = ".output/server"
+  # Nuxt SSR functions will be in dist
+  directory = "dist"
 
 # Configure secrets scanning to exclude build output
 # These secrets are server-side only and accessed at runtime
