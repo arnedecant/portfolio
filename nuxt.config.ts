@@ -23,9 +23,8 @@ export default defineNuxtConfig({
   },
 
   content: {
-    experimental: {
-      sqliteConnector: 'better-sqlite3'
-    }
+    // SQLite connectors don't work in serverless environments like Netlify
+    // Using default in-memory storage instead
   },
 
   studio: {
@@ -45,7 +44,7 @@ export default defineNuxtConfig({
       ignore: ['/studio', '/studio/**', '/_studio', '/_studio/**', '/_nuxt_studio', '/_nuxt_studio/**']
     },
     rollupConfig: {
-      external: ['better-sqlite3']
+      // No need to externalize better-sqlite3 since we're not using it on Netlify
     },
     // Prevent Nitro from replacing these env vars during build
     // They will be accessed at runtime from process.env
