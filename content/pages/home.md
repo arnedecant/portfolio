@@ -1,5 +1,5 @@
 ---
-title: "Arne Decant"
-slug: "home"
-seoDescription: "Arne Decant – software engineer building tools and interfaces."
+title: Arne Decant
+seoDescription: Arne Decant - software engineer building tools and interfaces.
+slug: home
 ---
