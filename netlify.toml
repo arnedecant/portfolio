@@ -1,0 +1,9 @@
+[build]
+  command = "pnpm run build"
+  publish = "dist"
+
+# Configure secrets scanning to exclude build output
+# These secrets are server-side only and accessed at runtime
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = ".netlify/**,dist/**,.output/**"
+

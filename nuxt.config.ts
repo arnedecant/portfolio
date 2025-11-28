@@ -46,7 +46,14 @@ export default defineNuxtConfig({
     },
     rollupConfig: {
       external: ['better-sqlite3']
-    }
+    },
+    // Prevent Nitro from replacing these env vars during build
+    // They will be accessed at runtime from process.env
+    replace: {
+      // Keep these as process.env references instead of inlining values
+      'process.env.STUDIO_GITHUB_CLIENT_ID': 'process.env.STUDIO_GITHUB_CLIENT_ID',
+      'process.env.STUDIO_GITHUB_CLIENT_SECRET': 'process.env.STUDIO_GITHUB_CLIENT_SECRET',
+    },
   },
 
   modules: [
