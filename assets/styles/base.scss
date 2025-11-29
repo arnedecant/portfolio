@@ -1,23 +1,44 @@
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #0b1020 0, #03040a 40%, #000 100%);
-  color: var(--c-text);
-}
-
-body {
-  min-height: 100dvh;
-  margin: 0;
-  padding: 0;
+  background: var(--gradient-neutral-dark);
 }
 
 a {
   color: var(--c-primary);
-  text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
-    text-decoration: underline;
+    color: var(--nyx-c-default-light);
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--c-text);
+  font-weight: 100;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 5dvw, 3.6rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4dvw, 2.4rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3dvw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2dvw, 1.5rem);
+}
+
+h5 {
+  font-size: clamp(1rem, 1.5dvw, 1.25rem);
+}
+
+h6 {
+  font-size: clamp(0.8rem, 1dvw, 1rem);
 }
 
 main {
@@ -25,7 +46,7 @@ main {
   width: 100dvw;
 
   > section {
-    height: 100dvh;
+    min-height: 100dvh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -45,13 +66,24 @@ ul.socials {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
+    color: var(--nyx-c-default-light);
+    width: 2rem;
+    height: 2rem;
     transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     span {
       width: 100%;
       height: 100%;
     }
   }
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }

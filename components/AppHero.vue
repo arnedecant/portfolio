@@ -20,6 +20,7 @@ const { socials } = useAppConfig()
   <section class="hero">
     <span class="eyebrow">{{ props.eyebrow }}</span>
     <h1>{{ props.title }}</h1>
+    <CtaButton to="#projects" class="hero__cta">View my projects</CtaButton>
     <ul class="socials">
       <li v-for="social in socials" :key="social.icon">
         <NuxtLink :to="social.to" :target="social.target" :aria-label="social.ariaLabel">
@@ -27,7 +28,6 @@ const { socials } = useAppConfig()
         </NuxtLink>
       </li>
     </ul>
-    <CtaButton to="#projects" class="hero__cta">View my projects</CtaButton>
   </section>
 </template>
 
@@ -40,7 +40,7 @@ const { socials } = useAppConfig()
 
   .eyebrow {
     font-size: clamp(0.75rem, 1dvw, 1.5rem);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
     margin-top: auto;
   }
 
@@ -48,7 +48,9 @@ const { socials } = useAppConfig()
     font-size: clamp(2.8rem, 5dvw, 3.6rem);
     margin: 0 0 5rem;
     letter-spacing: 0.3em;
+    text-align: center;
     font-weight: inherit;
+    line-height: 1.2;
   }
 
   .socials {

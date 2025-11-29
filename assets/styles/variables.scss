@@ -1,15 +1,31 @@
 :root {
-  --c-primary: #DB00FF;
-  --c-secondary: #00EBEB;
-  --c-tertiary: #FF0099;
-  --c-quaternary: #00FFAA;
-  --c-text: white;
-  --c-background: black;
+  --c-primary: var(--nyx-c-primary);
+  --c-secondary: var(--nyx-c-secondary);
+  --c-text: var(--nyx-c-text-1);
+  --c-background: var(--nyx-c-black-pure);
 
   --c-aurora-primary: #DB00FF;
   --c-aurora-secondary: #00EBEB;
   --c-aurora-tertiary: #FF0099;
   --c-aurora-quaternary: #00FFAA;
 
-  --gradient-aurora: linear-gradient(45deg, var(--c-aurora-primary), var(--c-aurora-secondary), var(--c-aurora-tertiary), var(--c-aurora-quaternary));
+  --gradient-aurora-linear: linear-gradient(
+    45deg, 
+    var(--c-aurora-primary), 
+    var(--c-aurora-secondary), 
+    var(--c-aurora-tertiary), 
+    var(--c-aurora-quaternary)
+  );
+  --gradient-aurora-radial: radial-gradient(
+    rgb(23, 24, 37) 40%, 
+    rgb(102, 51, 238) 50%, 
+    rgb(142, 100, 255), 
+    rgb(249, 38, 114)
+  );
+  --gradient-neutral-dark: radial-gradient(
+    circle at top,
+    #0b1020 0,
+    #03040a 40%,
+    #000 100%
+  );
 }

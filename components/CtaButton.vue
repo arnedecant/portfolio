@@ -33,7 +33,6 @@ const props = defineProps<{
   // border: 1px solid var(--c-text);
 }
 
-.cta-button:before,
 .cta-button:after {
   content: '';
   position: absolute;
@@ -41,10 +40,7 @@ const props = defineProps<{
   left: 0;
   width: var(--width);
   height: var(--height);
-}
-
-.cta-button:after {
-  background: var(--gradient-aurora);
+  background: var(--gradient-aurora-linear);
   width: calc(var(--width) + (var(--border-width) * 2));
   height: calc(var(--height) + (var(--border-width) * 2));
   left: calc(var(--border-width) * -1);
