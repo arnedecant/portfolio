@@ -1,7 +1,15 @@
 :root {
-  --c-primary: purple;
-  --c-secondary: pink;
-  --c-tertiary: blue;
+  --c-primary: #DB00FF;
+  --c-secondary: #00EBEB;
+  --c-tertiary: #FF0099;
+  --c-quaternary: #00FFAA;
   --c-text: white;
   --c-background: black;
+
+  --c-aurora-primary: #DB00FF;
+  --c-aurora-secondary: #00EBEB;
+  --c-aurora-tertiary: #FF0099;
+  --c-aurora-quaternary: #00FFAA;
+
+  --gradient-aurora: linear-gradient(45deg, var(--c-aurora-primary), var(--c-aurora-secondary), var(--c-aurora-tertiary), var(--c-aurora-quaternary));
 }
