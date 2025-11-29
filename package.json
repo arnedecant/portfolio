@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "arnedecant.github.io",
   "type": "module",
   "private": true,
   "scripts": {
@@ -27,6 +27,7 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "sass-embedded": "^1.93.3"
   },
   "pnpm": {

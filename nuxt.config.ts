@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     github: {
       provider: 'github',
       owner: 'arnedecant',
-      repo: 'portfolio',
+      repo: 'arnedecant.github.io',
       branch: 'main',
     },
   },
