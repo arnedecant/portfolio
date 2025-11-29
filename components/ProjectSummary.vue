@@ -43,7 +43,7 @@ watch($deco, render, { immediate: true })
   <article
     class="project-summary"
     @mousemove="onMouseMove"
-    @click="onClick"
+    @click.prevent="onClick"
   >
     <figure :style="{ '--x': `${pointer.x}px`, '--y': `${pointer.y}px` }">
       <img
