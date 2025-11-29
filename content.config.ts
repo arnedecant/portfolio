@@ -10,6 +10,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         slug: z.string().optional(),
+        eyebrow: z.string().optional(),
         seoDescription: z.string().optional(),
       }),
     }),
@@ -20,7 +21,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         slug: z.string(),
-        role: z.string().optional(),
+        summary: z.string().optional(),
         tech: z.array(z.string()).default([]),
         featured: z.boolean().default(false),
         order: z.number().int().default(0),

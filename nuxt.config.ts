@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     '@/assets/styles/main.scss',
   ],
 
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    }
+  },
+
   vite: {
     resolve: {
       alias: {

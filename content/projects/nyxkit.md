@@ -1,7 +1,7 @@
 ---
 title: "NyxKit"
 slug: "nyxkit"
-role: "Design system & component library"
+summary: "Design system & component library"
 tech:
   - Vue 3
   - TypeScript
