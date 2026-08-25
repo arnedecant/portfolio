@@ -20,7 +20,7 @@ const config = useAppConfig()
 .site-footer {
   padding: var(--space-12) 0 var(--space-8);
   border-top: 1px solid var(--c-border-subtle);
-  background: var(--nyx-surface-lowest);
+  background: var(--c-surface-lowest);
 }
 
 .site-footer__inner {

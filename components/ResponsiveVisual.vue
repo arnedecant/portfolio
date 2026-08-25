@@ -28,7 +28,7 @@ withDefaults(defineProps<{
   overflow: hidden;
   margin: 0;
   border: 1px solid var(--c-border);
-  background: var(--nyx-surface-lowest);
+  background: var(--c-surface-lowest);
 }
 
 .responsive-visual :deep(img),

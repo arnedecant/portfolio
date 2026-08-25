@@ -12,7 +12,7 @@ const props = defineProps<{
     <NyxButton
       :href="href"
       :theme="props.variant === 'critical' ? 'warning' : 'primary'"
-      :variant="props.variant === 'critical' ? 'solid' : 'outline'"
+      :variant="props.variant === 'critical' ? 'filled' : 'outline'"
       size="lg"
       class="cta-button"
       @click="navigate"
