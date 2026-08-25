@@ -1,16 +1,21 @@
 <script setup lang="ts">
+import { NyxMedia } from 'nyx-kit/components'
+
 withDefaults(defineProps<{
   alt?: string
   aspect?: string
+  src?: string
 }>(), {
   alt: '',
   aspect: '16 / 9',
+  src: undefined,
 })
 </script>
 
 <template>
   <figure class="responsive-visual" :style="{ aspectRatio: aspect }">
-    <slot />
+    <NyxMedia v-if="src" :src="src" :alt="alt" loading="lazy" />
+    <slot v-else />
     <figcaption v-if="$slots.caption">
       <slot name="caption" />
     </figcaption>
