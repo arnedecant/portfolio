@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nyx Kit - Project Case Study</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#004c69",
+                        "inverse-primary": "#00668a",
+                        "surface-container-highest": "#33343c",
+                        "primary": "#8ed5ff",
+                        "outline-variant": "#3e484f",
+                        "on-secondary-container": "#c4abff",
+                        "on-tertiary": "#472a00",
+                        "on-error": "#690005",
+                        "on-primary-container": "#004965",
+                        "inverse-on-surface": "#2f3037",
+                        "surface-container-low": "#1a1b22",
+                        "on-tertiary-container": "#613b00",
+                        "inverse-surface": "#e2e1eb",
+                        "secondary-container": "#571bc1",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "error-container": "#93000a",
+                        "surface-tint": "#7bd0ff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-surface": "#e2e1eb",
+                        "surface-variant": "#33343c",
+                        "outline": "#87929a",
+                        "on-background": "#e2e1eb",
+                        "primary-fixed": "#c4e7ff",
+                        "error": "#ffb4ab",
+                        "surface": "#12131a",
+                        "primary-fixed-dim": "#7bd0ff",
+                        "tertiary-container": "#f59e0b",
+                        "background": "#12131a",
+                        "surface-bright": "#383940",
+                        "primary-container": "#38bdf8",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "surface-container-high": "#282a31",
+                        "surface-container": "#1e1f26",
+                        "secondary": "#d0bcff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-primary-fixed": "#001e2c",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#00354a",
+                        "tertiary": "#ffc174",
+                        "on-secondary": "#3c0091",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-secondary-fixed": "#23005c",
+                        "surface-dim": "#12131a",
+                        "surface-container-lowest": "#0c0e14",
+                        "on-surface-variant": "#bdc8d1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "body-main": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "technical-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-main": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg": ["80px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["40px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "technical-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .tech-border { border: 0.5px solid rgba(255, 255, 255, 0.1); }
+        .tech-border-t { border-top: 0.5px solid rgba(255, 255, 255, 0.1); }
+        .tech-border-b { border-bottom: 0.5px solid rgba(255, 255, 255, 0.1); }
+        .tech-border-l { border-left: 0.5px solid rgba(255, 255, 255, 0.1); }
+        .glow-accent { box-shadow: 0 0 20px rgba(56, 189, 248, 0.15); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 transition-all duration-200">
+<div class="flex justify-between items-center px-margin-desktop h-20 max-w-full mx-auto">
+<div class="font-headline-md text-headline-md text-on-surface tracking-tighter hover:text-primary transition-all duration-300">
+                Arne Decant
+            </div>
+<div class="hidden md:flex gap-gutter items-center font-label-caps text-label-caps">
+<a class="text-primary border-b border-primary pb-1 hover:text-primary transition-all duration-300 active:scale-95" href="#">Work</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors transition-all duration-300 active:scale-95" href="#">Experience</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors transition-all duration-300 active:scale-95" href="#">Expertise</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors transition-all duration-300 active:scale-95" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:text-primary transition-colors transition-all duration-300 active:scale-95" href="#">Contact</a>
+</div>
+<button class="hidden md:flex items-center gap-2 border border-primary text-primary px-4 py-2 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/10 transition-colors glow-accent">
+                Resume
+            </button>
+</div>
+</nav>
+<!-- Project Hero Section -->
+<header class="pt-[240px] pb-section-gap px-margin-desktop max-w-[1920px] mx-auto w-full relative">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Title & Intro -->
+<div class="col-span-12 md:col-span-7 pr-gutter">
+<div class="font-technical-sm text-technical-sm text-primary mb-6 flex items-center gap-3">
+<span class="w-8 h-[1px] bg-primary"></span>
+                    CASE STUDY 01
+                </div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-8">Nyx Kit</h1>
+<p class="font-body-main text-body-main text-on-surface-variant max-w-2xl text-xl leading-relaxed">
+                    A comprehensive, nocturnal-themed UI kit designed for complex data visualization and technical applications. Focused on precision, atmospheric minimalism, and deep structural integrity.
+                </p>
+<div class="mt-12 flex gap-4">
+<button class="flex items-center gap-2 bg-transparent border border-primary text-primary px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/10 transition-colors glow-accent">
+                        View Live
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0; font-size: 16px;">open_in_new</span>
+</button>
+<button class="flex items-center gap-2 bg-surface border border-outline-variant text-on-surface px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-surface-bright transition-colors">
+                        Figma Source
+                    </button>
+</div>
+</div>
+<!-- Right Column: Meta Info Grid -->
+<div class="col-span-12 md:col-span-4 md:col-start-9 mt-12 md:mt-0">
+<div class="tech-border p-6 bg-surface-container-low backdrop-blur-sm relative h-full">
+<div class="grid grid-cols-1 gap-8">
+<div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2">ROLE</div>
+<div class="font-body-main text-body-main text-on-surface">Lead Product Designer</div>
+</div>
+<div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2">TIMELINE</div>
+<div class="font-body-main text-body-main text-on-surface">Q3 2023 - Q1 2024 (8 Months)</div>
+</div>
+<div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2">STATUS</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary glow-accent"></span>
+<span class="font-technical-sm text-technical-sm text-primary uppercase">Production</span>
+</div>
+</div>
+<div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2">TECHNOLOGY</div>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="border border-outline-variant px-2 py-1 font-technical-sm text-technical-sm text-on-surface-variant uppercase tracking-wider">Figma</span>
+<span class="border border-outline-variant px-2 py-1 font-technical-sm text-technical-sm text-on-surface-variant uppercase tracking-wider">React</span>
+<span class="border border-outline-variant px-2 py-1 font-technical-sm text-technical-sm text-on-surface-variant uppercase tracking-wider">Tailwind</span>
+<span class="border border-outline-variant px-2 py-1 font-technical-sm text-technical-sm text-on-surface-variant uppercase tracking-wider">WebGL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Image Canvas -->
+<div class="mt-24 w-full h-[600px] tech-border bg-surface-container relative overflow-hidden flex items-center justify-center group">
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" data-alt="A sprawling, high-resolution dark mode dashboard interface floating in a vast, minimalist digital void. The UI features precise, razor-thin lines, muted cool grays, and intense cyan accents that appear to emit a soft, luminescent glow like technical indicators. The background is a deep, atmospheric black with subtle grain texture, evoking a sophisticated, nocturnal engineering environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRwN3G-OEONo-kV97MuxrtqnSqB9mCWBfOXEKtoV08r6wvXXOpBxFNlJ_CWkKuCOH6g3Iv8dZA1OS4vTniFxXcUQVfvKXiXkRwPhl0oswJvVZ7rZGgfehpI80Rl3lood67kYJ6WiZFL-l9HojnKvNdH9IqX7JKxQid1v8QshH8853DH47xEF3Q6IV64XGiICoch92-zsLswjGzH_C1Pdkw-0I2cpTTwOqdJvgak6wqazF86dKia8k6')"></div>
+</div>
+</header>
+<!-- Main Content Flow -->
+<main class="w-full">
+<!-- Context & Problem Grid -->
+<section class="px-margin-desktop py-section-gap max-w-[1920px] mx-auto tech-border-t">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-3">
+<h2 class="font-headline-md text-headline-md text-on-surface sticky top-32">Context</h2>
+</div>
+<div class="col-span-12 md:col-span-7 font-body-main text-body-main text-on-surface-variant space-y-6">
+<p>
+                        In the realm of high-density data visualization and technical monitoring, generic design systems often fail. They lack the necessary contrast, structural rigidity, and atmospheric depth required for extended use in low-light environments.
+                    </p>
+<p>
+                        The existing internal tools were built on a fragmented, legacy light-mode system that caused severe eye strain during long monitoring sessions and failed to visually prioritize critical system alerts effectively.
+                    </p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter mt-24">
+<div class="col-span-12 md:col-span-3">
+<h2 class="font-headline-md text-headline-md text-on-surface sticky top-32">Problem</h2>
+</div>
+<div class="col-span-12 md:col-span-8">
+<div class="tech-border p-12 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary-container"></div>
+<p class="font-headline-md text-headline-md text-on-surface leading-tight">
+                            "How might we design a system that handles immense data density without causing cognitive overload, while establishing a deeply technical, atmospheric brand identity?"
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Constraints & Responsibilities -->
+<section class="px-margin-desktop py-section-gap bg-surface-container-lowest">
+<div class="max-w-[1920px] mx-auto grid grid-cols-12 gap-gutter">
+<div class="col-span-12 md:col-span-5 tech-border p-8">
+<h3 class="font-technical-sm text-technical-sm text-primary mb-6 flex items-center gap-3 uppercase">
+<span class="material-symbols-outlined text-[16px]">warning</span> Constraints
+                    </h3>
+<ul class="space-y-4 font-body-main text-body-main text-on-surface-variant">
+<li class="flex items-start gap-4">
+<span class="text-primary mt-1">/</span>
+                            Must achieve AA accessibility standards strictly within a dark-mode paradigm.
+                        </li>
+<li class="flex items-start gap-4">
+<span class="text-primary mt-1">/</span>
+                            Integration required with legacy React component structures without breaking existing logic.
+                        </li>
+<li class="flex items-start gap-4">
+<span class="text-primary mt-1">/</span>
+                            Performance budget: UI rendering could not impede real-time data streaming capabilities.
+                        </li>
+</ul>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7 tech-border p-8">
+<h3 class="font-technical-sm text-technical-sm text-primary mb-6 flex items-center gap-3 uppercase">
+<span class="material-symbols-outlined text-[16px]">engineering</span> Responsibilities
+                    </h3>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2">DESIGN</div>
+<ul class="font-body-main text-body-main text-on-surface-variant space-y-2">
+<li>Visual Direction</li>
+<li>Component Architecture</li>
+<li>Interaction Prototyping</li>
+</ul>
+</div>
+<div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2">ENGINEERING</div>
+<ul class="font-body-main text-body-main text-on-surface-variant space-y-2">
+<li>Design Token Setup</li>
+<li>Tailwind Configuration</li>
+<li>Core React Components</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Output & Outcome -->
+<section class="px-margin-desktop py-section-gap max-w-[1920px] mx-auto tech-border-t">
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-12 text-center mb-24">
+<div class="font-technical-sm text-technical-sm text-primary mb-6 uppercase tracking-widest">The Result</div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Outcome &amp; Impact</h2>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter mb-24">
+<div class="col-span-12 md:col-span-4 tech-border p-8 hover:bg-surface-container transition-colors">
+<div class="font-display-lg text-display-lg text-primary mb-4 glow-accent">3x</div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2 uppercase">Development Velocity</div>
+<p class="font-body-main text-body-main text-on-surface-variant">Reduction in time-to-ship for new dashboard features due to robust token architecture.</p>
+</div>
+<div class="col-span-12 md:col-span-4 tech-border p-8 hover:bg-surface-container transition-colors">
+<div class="font-display-lg text-display-lg text-primary mb-4 glow-accent">94%</div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2 uppercase">User Satisfaction</div>
+<p class="font-body-main text-body-main text-on-surface-variant">Positive rating from internal analysts regarding reduced eye strain during extended sessions.</p>
+</div>
+<div class="col-span-12 md:col-span-4 tech-border p-8 hover:bg-surface-container transition-colors">
+<div class="font-display-lg text-display-lg text-primary mb-4 glow-accent">Zero</div>
+<div class="font-technical-sm text-technical-sm text-outline mb-2 uppercase">Accessibility Violations</div>
+<p class="font-body-main text-body-main text-on-surface-variant">Full compliance achieved for critical data contrast ratios within the nocturnal theme.</p>
+</div>
+</div>
+<div class="w-full h-[800px] tech-border bg-surface-container relative overflow-hidden flex items-center justify-center group">
+<div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background z-10 pointer-events-none"></div>
+<div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-100 transition-opacity duration-700" data-alt="A meticulously organized showcase of digital UI components laid out like a technical blueprint. Dark mode elements such as sleek data tables, glowing cyan toggle switches, and precise typographic hierarchies are arranged on a deep black, subtly textured background. Thin white structural lines connect the components, emphasizing the engineering precision and atmospheric minimalism of the design system." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsy_168__aFHfGWpkpIJ8KVl2Yx2KyWRyjijX0ppPeftZA7V2s_Nvx5FZSl0pXttII4oudpIDCDP6rhz3YH6tTZuLPJtoFwlyn7V32IRGuAk5GGTRgneLn2LrP3m-BoLlGMoPnxGM6HTNa-6TgAj5dCJLORxUTWGVMeegUUZfARVi6nPUXsEtr7jLQgFSxPzXZ4B6PoOtVdqLPyVGwDmaF1TdrTlWjMHoxnM_FkChXMvFADEfIo-Jy')"></div>
+</div>
+</section>
+<!-- Next Project Navigation -->
+<section class="px-margin-desktop py-24 tech-border-t border-t border-white/5 relative overflow-hidden">
+<!-- Background ambient light -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-primary/5 blur-[120px] pointer-events-none rounded-full"></div>
+<a class="block max-w-4xl mx-auto text-center group" href="#">
+<div class="font-technical-sm text-technical-sm text-outline mb-6 uppercase tracking-widest transition-colors group-hover:text-primary">Next Project</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface-variant group-hover:text-on-surface transition-colors duration-500 group-hover:glow-accent inline-block">
+                     Aether API Portal
+                 </h2>
+<div class="mt-8 flex justify-center">
+<span class="material-symbols-outlined text-[32px] text-primary opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">arrow_downward</span>
+</div>
+</a>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-lowest border-t border-white/5 flex flex-col md:flex-row justify-between items-start px-margin-desktop gap-gutter">
+<div class="font-headline-md text-headline-md text-on-surface">
+            Arne Decant © 2024 • Senior Software Engineer
+        </div>
+<div class="flex gap-8 font-body-main text-body-main text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity duration-300">
+<a class="hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-primary transition-colors" href="#">Email</a>
+</div>
+</footer>
+</body></html>

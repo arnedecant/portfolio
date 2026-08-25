@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port 9001",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "nuxt preview --port 9002",
     "postinstall": "nuxt prepare",
     "deploy:github": "gh-pages -d .output/public",
     "clean": "rm -rf .nuxt .output node_modules"

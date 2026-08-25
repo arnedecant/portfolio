@@ -7,6 +7,14 @@ export default defineNuxtConfig({
     '@/assets/styles/main.scss',
   ],
 
+  fonts: {
+    families: [
+      { name: 'Playfair Display', provider: 'google' },
+      { name: 'Inter', provider: 'google' },
+      { name: 'JetBrains Mono', provider: 'google' },
+    ],
+  },
+
   router: {
     options: {
       scrollBehaviorType: 'smooth',

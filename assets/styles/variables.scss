@@ -1,31 +1,58 @@
 :root {
-  --c-primary: var(--nyx-c-primary);
-  --c-secondary: var(--nyx-c-secondary);
-  --c-text: var(--nyx-c-text-1);
-  --c-background: var(--nyx-c-black-pure);
+  --nyx-background: #12131a;
+  --nyx-surface-lowest: #0c0e14;
+  --nyx-surface-low: #1a1b22;
+  --nyx-surface: #1e1f26;
+  --nyx-surface-high: #282a31;
+  --nyx-surface-highest: #33343c;
+  --nyx-on-surface: #e2e1eb;
+  --nyx-on-surface-variant: #bdc8d1;
+  --nyx-primary: #8ed5ff;
+  --nyx-primary-signal: #38bdf8;
+  --nyx-secondary: #d0bcff;
+  --nyx-tertiary: #ffc174;
+  --nyx-tertiary-signal: #f59e0b;
+  --nyx-outline: #87929a;
+  --nyx-outline-variant: #3e484f;
 
-  --c-aurora-primary: #DB00FF;
-  --c-aurora-secondary: #00EBEB;
-  --c-aurora-tertiary: #FF0099;
-  --c-aurora-quaternary: #00FFAA;
+  --c-background: var(--nyx-background);
+  --c-surface: var(--nyx-surface);
+  --c-text: var(--nyx-on-surface);
+  --c-text-muted: var(--nyx-on-surface-variant);
+  --c-primary: var(--nyx-primary);
+  --c-primary-signal: var(--nyx-primary-signal);
+  --c-secondary: var(--nyx-secondary);
+  --c-critical: var(--nyx-tertiary-signal);
+  --c-border: color-mix(in srgb, var(--nyx-outline-variant) 70%, transparent);
+  --c-border-subtle: color-mix(in srgb, var(--nyx-on-surface) 9%, transparent);
 
-  --gradient-aurora-linear: linear-gradient(
-    45deg, 
-    var(--c-aurora-primary), 
-    var(--c-aurora-secondary), 
-    var(--c-aurora-tertiary), 
-    var(--c-aurora-quaternary)
-  );
-  --gradient-aurora-radial: radial-gradient(
-    rgb(23, 24, 37) 40%, 
-    rgb(102, 51, 238) 50%, 
-    rgb(142, 100, 255), 
-    rgb(249, 38, 114)
-  );
-  --gradient-neutral-dark: radial-gradient(
-    circle at top,
-    #0b1020 0,
-    #03040a 40%,
-    #000 100%
-  );
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-technical: 'JetBrains Mono', ui-monospace, monospace;
+
+  --text-display: clamp(3rem, 7dvw, 5rem);
+  --text-headline: clamp(2rem, 4dvw, 2.5rem);
+  --text-body: 1rem;
+  --text-technical: 0.75rem;
+  --text-label: 0.6875rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-40: 10rem;
+  --page-gutter: clamp(1.5rem, 5dvw, 5rem);
+  --content-width: 90rem;
+  --reading-width: 72ch;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --focus-ring: 0 0 0 0.1875rem var(--c-background), 0 0 0 0.3125rem var(--c-primary-signal);
+  --signal-glow: 0 0 1.25rem color-mix(in srgb, var(--c-primary-signal) 13%, transparent);
 }
