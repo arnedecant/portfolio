@@ -91,4 +91,8 @@
   --radius-lg: var(--nyx-radius-lg);
   --focus-ring: 0 0 0 0.1875rem var(--c-background), 0 0 0 0.3125rem var(--c-primary-signal);
   --signal-glow: 0 0 1.25rem color-mix(in srgb, var(--c-primary-signal) 13%, transparent);
+
+  /* Legacy project visual aliases, now driven by Nyx tokens. */
+  --gradient-aurora-linear: linear-gradient(135deg, var(--nyx-c-primary), var(--nyx-c-secondary));
+  --gradient-aurora-radial: radial-gradient(circle, var(--nyx-c-primary) 0, var(--nyx-c-bg-mute) 55%, var(--nyx-c-bg) 100%);
 }
