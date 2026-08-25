@@ -12,7 +12,6 @@ tech:
   - Tauri
   - REST
   - SSE
-  - Nyx Kit
 featured: true
 order: 3
 ---

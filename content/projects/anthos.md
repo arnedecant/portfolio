@@ -12,7 +12,6 @@ tech:
   - Express
   - Vue 3
   - Tauri
-  - Nyx Kit
 featured: true
 order: 2
 ---
