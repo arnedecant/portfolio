@@ -44,16 +44,20 @@ const config = useAppConfig()
 
 @media (min-width: 48em) {
   .site-footer__inner {
-    grid-template-columns: 1fr 2fr;
+    position: relative;
+    display: flex;
     align-items: end;
+    justify-content: space-between;
+  }
+
+  .site-footer__inner :deep(.social-links) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .site-footer__copyright {
-    grid-row: 2;
-  }
-
-  .site-footer__copyright {
-    justify-self: end;
+    margin-left: auto;
   }
 }
 </style>
