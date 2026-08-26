@@ -157,14 +157,18 @@ function closeMenu() {
     z-index: 1;
     inset: 0;
     height: 100dvh;
-    display: none;
+    visibility: hidden;
     align-content: center;
     gap: clamp(1rem, 3dvh, 2rem);
     padding: 7.5rem var(--page-gutter) 3rem;
     overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    clip-path: inset(0 0 100% 0);
     background:
       radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--c-primary) 14%, transparent), transparent 28rem),
       linear-gradient(145deg, var(--c-background), var(--c-surface-lowest));
+    transition: clip-path 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.65s;
   }
 
   .site-nav__links::before {
@@ -191,6 +195,10 @@ function closeMenu() {
   .site-nav--open .site-nav__links {
     display: grid;
     gap: var(--space-6);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    clip-path: inset(0);
   }
 
   .site-nav__links a {
@@ -203,6 +211,29 @@ function closeMenu() {
     letter-spacing: -0.04em;
     line-height: 0.9;
     text-transform: none;
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: color 0.2s ease, opacity 0.45s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-nav--open .site-nav__links a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .site-nav--open .site-nav__links a:nth-child(1) { transition-delay: 0.08s; }
+  .site-nav--open .site-nav__links a:nth-child(2) { transition-delay: 0.13s; }
+  .site-nav--open .site-nav__links a:nth-child(3) { transition-delay: 0.18s; }
+  .site-nav--open .site-nav__links a:nth-child(4) { transition-delay: 0.23s; }
+  .site-nav--open .site-nav__links a:nth-child(5) { transition-delay: 0.28s; }
+  .site-nav--open .site-nav__links a:nth-child(6) { transition-delay: 0.33s; }
+
+  .site-nav--open .site-nav__links::before {
+    animation: nav-label-in 0.5s 0.25s both cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-nav--open .site-nav__links::after {
+    animation: nav-rule-in 0.7s 0.35s both cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .site-nav__links a::before {
@@ -240,5 +271,30 @@ function closeMenu() {
     line-height: 1;
     text-transform: uppercase;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav__toggle span,
+  .site-nav__links,
+  .site-nav__links a {
+    transition: none;
+    animation: none !important;
+  }
+}
+
+@keyframes nav-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nav-rule-in {
+  from { transform: scaleX(0); transform-origin: right; }
+  to { transform: scaleX(1); transform-origin: right; }
 }
 </style>
