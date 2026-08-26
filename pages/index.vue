@@ -67,11 +67,6 @@ const principles = [
 
     <SectionFrame id="positioning" eyebrow="01 / Positioning" title="Complex products. Reusable systems. Clear experiences.">
       <p class="section-lede">I'm a senior software engineer focused on frontend architecture, product ownership, and complex interactive systems. My work spans livestream production, real-time communication, browser-based 3D experiences, and reusable Vue component systems.</p>
-      <div class="signal-ideas" aria-label="Three connected areas of focus">
-        <span>Complex products</span>
-        <span>Reusable systems</span>
-        <span>Clear experiences</span>
-      </div>
     </SectionFrame>
 
     <section id="work" class="work-section">
@@ -245,21 +240,6 @@ const principles = [
   text-transform: uppercase;
 }
 
-.signal-ideas {
-  display: grid;
-  gap: var(--space-4);
-  margin-top: var(--space-12);
-  border-top: 1px solid var(--c-border-subtle);
-}
-
-.signal-ideas span {
-  padding: var(--space-4) 0;
-  border-bottom: 1px solid var(--c-border-subtle);
-  color: var(--c-primary);
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3dvw, 2.5rem);
-}
-
 .experience-list,
 .principles-list {
   display: grid;
@@ -371,14 +351,6 @@ const principles = [
     padding: var(--space-40) 0;
   }
 
-  .signal-ideas {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
-  }
-
-  .signal-ideas span:nth-child(2) {
-    transform: translateY(var(--space-8));
-  }
 }
 
 @media (max-width: 47.99em) {
