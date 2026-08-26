@@ -17,7 +17,7 @@ defineProps<{
   font-size: var(--text-label);
   font-weight: 500;
   letter-spacing: 0.15em;
-  line-height: 1;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 </style>
