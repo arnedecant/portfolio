@@ -157,9 +157,10 @@ function closeMenu() {
     z-index: 1;
     inset: 0;
     height: 100dvh;
+    display: grid;
     visibility: hidden;
     align-content: center;
-    gap: clamp(1rem, 3dvh, 2rem);
+    gap: var(--space-6);
     padding: 7.5rem var(--page-gutter) 3rem;
     overflow-y: auto;
     opacity: 0;
@@ -193,8 +194,6 @@ function closeMenu() {
   }
 
   .site-nav--open .site-nav__links {
-    display: grid;
-    gap: var(--space-6);
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
