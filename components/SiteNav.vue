@@ -156,6 +156,7 @@ function closeMenu() {
     position: fixed;
     z-index: 1;
     inset: 0;
+    height: 100dvh;
     display: none;
     align-content: center;
     gap: clamp(1rem, 3dvh, 2rem);
