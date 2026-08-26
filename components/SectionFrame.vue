@@ -43,7 +43,7 @@ withDefaults(defineProps<{
 }
 
 .section-frame__header h2 {
-  max-width: 18ch;
+  max-width: 40ch;
   font-size: var(--text-headline);
 }
 
@@ -53,12 +53,7 @@ withDefaults(defineProps<{
   }
 
   .section-frame__header {
-    grid-template-columns: minmax(10rem, 2fr) minmax(0, 7fr);
-    align-items: start;
-  }
-
-  .section-frame__content {
-    margin-left: 22.22%;
+    grid-template-columns: 1fr;
   }
 }
 </style>

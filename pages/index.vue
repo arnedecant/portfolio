@@ -161,7 +161,6 @@ const principles = [
 
 .home-hero__inner {
   display: grid;
-  max-width: 62rem;
   gap: var(--space-6);
 }
 
@@ -214,12 +213,12 @@ const principles = [
 .section-heading {
   display: grid;
   gap: var(--space-4);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-12);
 }
 
 .section-heading h2,
 .contact-section h2 {
-  max-width: 18ch;
+  max-width: 40ch;
   font-size: var(--text-headline);
 }
 
@@ -342,7 +341,7 @@ const principles = [
 
 .contact-section__inner {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
 .contact-section h2 {
@@ -370,6 +369,11 @@ const principles = [
 }
 
 @media (min-width: 48em) {
+  .work-section,
+  .contact-section {
+    padding: var(--space-40) 0;
+  }
+
   .home-hero {
     padding: var(--space-40) 0;
   }
