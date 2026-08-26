@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port 9001",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "nuxt preview --port 9002",
     "postinstall": "nuxt prepare",
     "deploy:github": "gh-pages -d .output/public",
     "clean": "rm -rf .nuxt .output node_modules"
@@ -21,7 +21,7 @@
     "eslint": "^9.39.1",
     "nuxt": "^4.2.1",
     "nuxt-studio": "1.0.0-alpha.2",
-    "nyx-kit": "^1.1.24",
+    "nyx-kit": "^2.0.39",
     "sqlite3": "^5.1.7",
     "vue": "^3.5.25",
     "vue-router": "^4.6.3",

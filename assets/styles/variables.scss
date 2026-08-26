@@ -1,31 +1,98 @@
 :root {
-  --c-primary: var(--nyx-c-primary);
-  --c-secondary: var(--nyx-c-secondary);
+  /* Nyx Kit theme overrides, kept in the same shape as Nyx Notes. */
+  --nyx-c-black-pure: #0c0e14;
+  --nyx-c-bg: #12131a;
+  --nyx-c-bg-soft: #1a1b22;
+  --nyx-c-bg-mute: #282a31;
+  --nyx-c-divider: color-mix(in srgb, #87929a 28%, transparent);
+  --nyx-c-divider-light: color-mix(in srgb, #87929a 14%, transparent);
+
+  --nyx-c-text-1: #e2e1eb;
+  --nyx-c-text-2: #bdc8d1;
+  --nyx-c-text-3: color-mix(in srgb, #bdc8d1 55%, transparent);
+  --nyx-c-text-4: color-mix(in srgb, #bdc8d1 25%, transparent);
+
+  --nyx-c-primary: #38bdf8;
+  --nyx-c-primary-light: #8ed5ff;
+  --nyx-c-primary-dark: #00668a;
+  --nyx-c-primary-highlight: #8ed5ff;
+  --nyx-c-primary-alt: #c4e7ff;
+  --nyx-rgb-primary: 56, 189, 248;
+
+  --nyx-c-teal: #d0bcff;
+  --nyx-c-teal-light: #e9ddff;
+  --nyx-c-teal-lighter: #f1eaff;
+  --nyx-c-teal-dark: #571bc1;
+  --nyx-c-teal-darker: #3c0091;
+
+  --nyx-c-amber: #f59e0b;
+  --nyx-c-amber-light: #ffc174;
+  --nyx-c-amber-lighter: #ffddb8;
+  --nyx-c-amber-dark: #b45309;
+  --nyx-c-amber-darker: #78350f;
+
+  --nyx-c-default: #87929a;
+  --nyx-c-default-light: #bdc8d1;
+  --nyx-c-default-dark: #3e484f;
+  --nyx-c-default-highlight: #bdc8d1;
+  --nyx-c-default-alt: #e2e1eb;
+  --nyx-rgb-default: 135, 146, 154;
+
+  --nyx-font-family-base: Inter, system-ui, sans-serif;
+  --nyx-font-family-headline: 'Playfair Display', Georgia, serif;
+  --nyx-font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --nyx-radius-xs: 0.125rem;
+  --nyx-radius-sm: 0.25rem;
+  --nyx-radius-md: 0.375rem;
+  --nyx-radius-lg: 0.5rem;
+  --nyx-radius-xl: 0.75rem;
+
+  /* Portfolio aliases reference Nyx Kit tokens instead of duplicating them. */
+  --c-background: var(--nyx-c-bg);
+  --c-surface-lowest: var(--nyx-c-black-pure);
+  --c-surface: var(--nyx-c-bg-soft);
+  --c-surface-high: var(--nyx-c-bg-mute);
   --c-text: var(--nyx-c-text-1);
-  --c-background: var(--nyx-c-black-pure);
+  --c-text-muted: var(--nyx-c-text-2);
+  --c-primary: var(--nyx-c-primary);
+  --c-primary-signal: var(--nyx-c-primary-light);
+  --c-secondary: var(--nyx-c-secondary);
+  --c-critical: var(--nyx-c-warning);
+  --c-border: var(--nyx-c-divider);
+  --c-border-subtle: color-mix(in srgb, var(--nyx-c-text-1) 9%, transparent);
 
-  --c-aurora-primary: #DB00FF;
-  --c-aurora-secondary: #00EBEB;
-  --c-aurora-tertiary: #FF0099;
-  --c-aurora-quaternary: #00FFAA;
+  --font-display: var(--nyx-font-family-headline);
+  --font-body: var(--nyx-font-family-base);
+  --font-technical: var(--nyx-font-family-mono);
 
-  --gradient-aurora-linear: linear-gradient(
-    45deg, 
-    var(--c-aurora-primary), 
-    var(--c-aurora-secondary), 
-    var(--c-aurora-tertiary), 
-    var(--c-aurora-quaternary)
-  );
-  --gradient-aurora-radial: radial-gradient(
-    rgb(23, 24, 37) 40%, 
-    rgb(102, 51, 238) 50%, 
-    rgb(142, 100, 255), 
-    rgb(249, 38, 114)
-  );
-  --gradient-neutral-dark: radial-gradient(
-    circle at top,
-    #0b1020 0,
-    #03040a 40%,
-    #000 100%
-  );
+  --text-display: clamp(3rem, 7dvw, 5rem);
+  --text-headline: clamp(2rem, 4dvw, 2.5rem);
+  --text-body: 1rem;
+  --text-technical: 0.75rem;
+  --text-label: 0.6875rem;
+
+  --space-1: var(--nyx-gap-xs);
+  --space-2: var(--nyx-gap-sm);
+  --space-3: var(--nyx-gap-md);
+  --space-4: var(--nyx-gap-lg);
+  --space-6: var(--nyx-pad-md);
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-40: 10rem;
+  --page-gutter: clamp(1.5rem, 5dvw, 5rem);
+  --content-width: 90rem;
+  --reading-width: 72ch;
+
+  --radius-sm: var(--nyx-radius-sm);
+  --radius-md: var(--nyx-radius-md);
+  --radius-lg: var(--nyx-radius-lg);
+  --focus-ring: 0 0 0 0.1875rem var(--c-background), 0 0 0 0.3125rem var(--c-primary-signal);
+  --signal-glow: 0 0 1.25rem color-mix(in srgb, var(--c-primary-signal) 13%, transparent);
+
+  /* Legacy project visual aliases, now driven by Nyx tokens. */
+  --gradient-aurora-linear: linear-gradient(135deg, var(--nyx-c-primary), var(--nyx-c-secondary));
+  --gradient-aurora-radial: radial-gradient(circle, var(--nyx-c-primary) 0, var(--nyx-c-bg-mute) 55%, var(--nyx-c-bg) 100%);
 }

@@ -28,6 +28,14 @@ export default defineContentConfig({
         title: z.string(),
         slug: z.string(),
         summary: z.string().optional(),
+        description: z.string().optional(),
+        category: z.string().optional(),
+        role: z.string().optional(),
+        timeline: z.string().optional(),
+        status: z.string().optional(),
+        featureWeight: z.number().int().optional(),
+        confidential: z.boolean().default(false),
+        era: z.string().optional(),
         tech: z.array(z.string()).default([]),
         featured: z.boolean().default(false),
         github: z.string().optional(),
@@ -39,4 +47,3 @@ export default defineContentConfig({
     }),
   },
 })
-
