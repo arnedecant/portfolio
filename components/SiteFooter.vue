@@ -10,7 +10,6 @@ const config = useAppConfig()
         <p class="site-footer__role">{{ config.site.role }}</p>
       </div>
       <SocialLinks />
-      <p class="site-footer__note">Built with Vue, Nuxt and Nyx Kit.</p>
       <p class="site-footer__copyright">© {{ new Date().getFullYear() }} {{ config.site.name }}</p>
     </div>
   </footer>
@@ -37,7 +36,6 @@ const config = useAppConfig()
 }
 
 .site-footer__role,
-.site-footer__note,
 .site-footer__copyright {
   color: var(--c-text-muted);
   font-family: var(--font-technical);
@@ -50,7 +48,6 @@ const config = useAppConfig()
     align-items: end;
   }
 
-  .site-footer__note,
   .site-footer__copyright {
     grid-row: 2;
   }
