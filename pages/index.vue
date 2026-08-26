@@ -129,10 +129,8 @@ const principles = [
       </div>
     </SectionFrame>
 
-    <section id="contact" class="contact-section" aria-labelledby="contact-title">
-      <div class="container contact-section__inner">
-        <TechnicalLabel>07 / Contact</TechnicalLabel>
-        <h2 id="contact-title">Have a complex product that needs clarity?</h2>
+    <SectionFrame id="contact" class="contact-section" eyebrow="07 / Contact" title="Have a complex product that needs clarity?">
+      <div class="contact-section__content">
         <p>I'm interested in senior engineering roles where I can combine frontend architecture, technical ownership, and thoughtful product development.</p>
         <div class="contact-section__actions">
           <CtaButton to="mailto:hello@arnedecant.be" variant="critical">Email me</CtaButton>
@@ -141,7 +139,7 @@ const principles = [
         </div>
         <p class="contact-section__location">Belgium · Available for senior software engineering opportunities</p>
       </div>
-    </section>
+    </SectionFrame>
   </main>
 </template>
 
@@ -339,16 +337,12 @@ const principles = [
   background: var(--c-surface-lowest);
 }
 
-.contact-section__inner {
+.contact-section__content {
   display: grid;
   gap: var(--space-4);
 }
 
-.contact-section h2 {
-  font-size: clamp(2.5rem, 6dvw, 5rem);
-}
-
-.contact-section p:not(.contact-section__location) {
+.contact-section__content > p:first-child {
   max-width: 55ch;
   color: var(--c-text-muted);
   font-size: 1.125rem;
@@ -369,8 +363,7 @@ const principles = [
 }
 
 @media (min-width: 48em) {
-  .work-section,
-  .contact-section {
+  .work-section {
     padding: var(--space-40) 0;
   }
 
