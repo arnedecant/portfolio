@@ -163,7 +163,7 @@ const principles = [
 }
 
 .home-hero h1 {
-  max-width: 12ch;
+  max-width: 18ch;
   margin: var(--space-8) 0 var(--space-4);
 }
 
