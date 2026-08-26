@@ -7,7 +7,7 @@ const links = [
   { label: 'Work', to: '/#work' },
   { label: 'Experience', to: '/#experience' },
   { label: 'Expertise', to: '/#expertise' },
-  { label: 'About', to: '/about' },
+  { label: 'About', to: '/#about' },
   { label: 'Contact', to: '/#contact' },
 ]
 
