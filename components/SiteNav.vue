@@ -3,6 +3,7 @@ const isOpen = ref(false)
 const config = useAppConfig()
 
 const links = [
+  { label: 'Home', to: '/' },
   { label: 'Work', to: '/#work' },
   { label: 'Experience', to: '/#experience' },
   { label: 'Expertise', to: '/#expertise' },
