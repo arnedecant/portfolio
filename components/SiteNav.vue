@@ -1,12 +1,16 @@
 <script setup lang="ts">
 const isOpen = ref(false)
 const config = useAppConfig()
+const route = useRoute()
+const activeSection = ref('Home')
+
+let sectionObserver: IntersectionObserver | undefined
 
 const links = [
   { label: 'Home', to: '/' },
   { label: 'Work', to: '/#work' },
   { label: 'Experience', to: '/#experience' },
-  { label: 'Expertise', to: '/#expertise' },
+  { label: 'Practice', to: '/#expertise' },
   { label: 'About', to: '/#about' },
   { label: 'Contact', to: '/#contact' },
 ]
@@ -14,6 +18,53 @@ const links = [
 function closeMenu() {
   isOpen.value = false
 }
+
+function stopSectionObserver() {
+  sectionObserver?.disconnect()
+  sectionObserver = undefined
+}
+
+function startSectionObserver() {
+  if (!import.meta.client || route.path !== '/') return
+
+  activeSection.value = 'Home'
+
+  const sections = [
+    { id: '', label: 'Home', element: document.querySelector('.home-hero') },
+    ...links
+    .filter(link => link.to.includes('#'))
+    .map(link => ({ id: link.to.split('#')[1] ?? '', label: link.label, element: document.getElementById(link.to.split('#')[1] ?? '') })),
+  ]
+    .filter(section => section.element)
+
+  sectionObserver = new IntersectionObserver((entries) => {
+    const visibleSection = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0]
+
+    if (!visibleSection) return
+
+    const section = sections.find(item => item.element === visibleSection.target)
+    if (!section || activeSection.value === section.label) return
+
+    activeSection.value = section.label
+    window.history.replaceState(null, '', section.id ? `/#${section.id}` : '/')
+  }, {
+    rootMargin: '-20% 0px -65% 0px',
+    threshold: 0,
+  })
+
+  sections.forEach(section => sectionObserver?.observe(section.element!))
+}
+
+watch(() => route.path, async () => {
+  stopSectionObserver()
+  await nextTick()
+  startSectionObserver()
+})
+
+onMounted(startSectionObserver)
+onBeforeUnmount(stopSectionObserver)
 </script>
 
 <template>
@@ -36,7 +87,11 @@ function closeMenu() {
         <span />
       </button>
 
-      <nav id="site-navigation" class="site-nav__links" aria-label="Primary navigation">
+      <nav id="site-navigation" class="site-nav__links" :data-section="activeSection" aria-label="Primary navigation">
+        <div class="site-nav__menu-brand" aria-hidden="true">
+          <span class="site-nav__mark">AD</span>
+          <span>{{ config.site.name }}</span>
+        </div>
         <NuxtLink v-for="link in links" :key="link.to" :to="link.to" @click="closeMenu">
           {{ link.label }}
         </NuxtLink>
@@ -94,6 +149,10 @@ function closeMenu() {
   display: flex;
   align-items: center;
   gap: var(--space-6);
+}
+
+.site-nav__menu-brand {
+  display: none;
 }
 
 .site-nav__links a {
@@ -178,7 +237,7 @@ function closeMenu() {
     top: 7.5rem;
     right: var(--page-gutter);
     color: var(--c-primary);
-    content: 'NAV / 01';
+    content: 'CURRENT / ' attr(data-section);
     font-family: var(--font-technical);
     font-size: var(--text-label);
     letter-spacing: 0.15em;
@@ -221,12 +280,30 @@ function closeMenu() {
     transform: translateY(0);
   }
 
-  .site-nav--open .site-nav__links a:nth-child(1) { transition-delay: 0.08s; }
-  .site-nav--open .site-nav__links a:nth-child(2) { transition-delay: 0.13s; }
-  .site-nav--open .site-nav__links a:nth-child(3) { transition-delay: 0.18s; }
-  .site-nav--open .site-nav__links a:nth-child(4) { transition-delay: 0.23s; }
-  .site-nav--open .site-nav__links a:nth-child(5) { transition-delay: 0.28s; }
-  .site-nav--open .site-nav__links a:nth-child(6) { transition-delay: 0.33s; }
+  .site-nav--open .site-nav__links a:nth-of-type(1) { transition-delay: 0.08s; }
+  .site-nav--open .site-nav__links a:nth-of-type(2) { transition-delay: 0.13s; }
+  .site-nav--open .site-nav__links a:nth-of-type(3) { transition-delay: 0.18s; }
+  .site-nav--open .site-nav__links a:nth-of-type(4) { transition-delay: 0.23s; }
+  .site-nav--open .site-nav__links a:nth-of-type(5) { transition-delay: 0.28s; }
+  .site-nav--open .site-nav__links a:nth-of-type(6) { transition-delay: 0.33s; }
+
+  .site-nav__menu-brand {
+    position: absolute;
+    top: 2rem;
+    left: var(--page-gutter);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--c-text);
+    font-family: var(--font-technical);
+    font-size: var(--text-technical);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .site-nav__menu-brand .site-nav__mark {
+    flex: 0 0 auto;
+  }
 
   .site-nav--open .site-nav__links::before {
     animation: nav-label-in 0.5s 0.25s both cubic-bezier(0.16, 1, 0.3, 1);

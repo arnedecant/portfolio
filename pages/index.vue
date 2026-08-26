@@ -23,26 +23,24 @@ const experience = [
 const expertise = [
   {
     title: 'Frontend architecture',
+    description: 'Shape application structure and component APIs that keep complex workflows understandable as products evolve.',
     items: ['Vue 3', 'TypeScript', 'Nuxt', 'Complex state and workflows', 'Component API design', 'Performance and maintainability'],
   },
   {
     title: 'Design systems and developer experience',
+    description: 'Make the next change easier through reusable primitives, clear documentation, accessible defaults, and predictable APIs.',
     items: ['Reusable component libraries', 'Storybook', 'Theming and design tokens', 'Accessibility', 'Documentation', 'Package architecture'],
   },
   {
     title: 'Quality and delivery',
+    description: 'Treat testing, review, and delivery as part of the product, not a final checkpoint.',
     items: ['Vitest', 'Playwright', 'Static analysis', 'Code review', 'CI/CD', 'Testing strategy'],
   },
   {
     title: 'Interactive and real-time systems',
+    description: 'Work comfortably where timing, state, media, and visual feedback make the interface harder to reason about.',
     items: ['Three.js', 'WebGL and GLSL', 'Web Audio', 'WebSockets', 'Live video workflows', 'Multi-screen experiences'],
   },
-]
-
-const principles = [
-  ['01', 'Own the whole problem', 'Understand the product, constraints, and consequences, not only the assigned code.'],
-  ['02', 'Design for other developers', 'Build APIs, components, and systems that are predictable, documented, and maintainable.'],
-  ['03', 'Make complexity feel simple', 'Hide operational complexity without hiding important information.'],
 ]
 </script>
 
@@ -65,14 +63,10 @@ const principles = [
       </div>
     </section>
 
-    <SectionFrame id="positioning" eyebrow="01 / Positioning" title="Complex products. Reusable systems. Clear experiences.">
-      <p class="section-lede">I'm a senior software engineer focused on frontend architecture, product ownership, and complex interactive systems. My work spans livestream production, real-time communication, browser-based 3D experiences, and reusable Vue component systems.</p>
-    </SectionFrame>
-
     <section id="work" class="work-section">
       <div class="container">
         <div class="section-heading">
-          <TechnicalLabel>02 / Selected work</TechnicalLabel>
+          <TechnicalLabel>01 / Selected work</TechnicalLabel>
           <h2>Systems I build, shape, and keep understandable.</h2>
         </div>
         <p class="section-lede">A selection of personal projects and experiments. Each one is a way to work through a different kind of complexity, from component APIs to physical telemetry and real-time graphics.</p>
@@ -81,7 +75,8 @@ const principles = [
       </div>
     </section>
 
-    <SectionFrame id="experience" eyebrow="03 / Experience" title="A decade moving from full-lifecycle web work to high-stakes product systems.">
+    <SectionFrame id="experience" eyebrow="02 / Experience" title="A decade moving from full-lifecycle web work to high-stakes product systems.">
+      <p class="section-lede experience-intro">I'm a senior software engineer focused on frontend architecture, product ownership, and complex interactive systems. My work spans livestream production, real-time communication, browser-based 3D experiences, and reusable Vue component systems.</p>
       <ol class="experience-list">
         <li v-for="item in experience" :key="item.company" class="experience-item">
           <TechnicalLabel as="span">{{ item.period }}</TechnicalLabel>
@@ -94,10 +89,11 @@ const principles = [
       </ol>
     </SectionFrame>
 
-    <SectionFrame id="expertise" eyebrow="04 / Expertise" title="Deepest in frontend architecture and product ownership.">
+    <SectionFrame id="expertise" eyebrow="03 / Practice" title="I work across the product, interface, and system behind it.">
       <div class="expertise-grid">
         <article v-for="group in expertise" :key="group.title" class="expertise-group">
           <h3>{{ group.title }}</h3>
+          <p>{{ group.description }}</p>
           <ul>
             <li v-for="item in group.items" :key="item">{{ item }}</li>
           </ul>
@@ -105,26 +101,14 @@ const principles = [
       </div>
     </SectionFrame>
 
-    <SectionFrame id="philosophy" eyebrow="05 / Philosophy" title="The work is technical. The outcome should feel calm.">
-      <ol class="principles-list">
-        <li v-for="[number, title, description] in principles" :key="number">
-          <TechnicalLabel as="span">{{ number }}</TechnicalLabel>
-          <div>
-            <h3>{{ title }}</h3>
-            <p>{{ description }}</p>
-          </div>
-        </li>
-      </ol>
-    </SectionFrame>
-
-    <SectionFrame id="about" eyebrow="06 / About" title="Engineering, interaction design, and product thinking in the same room.">
+    <SectionFrame id="about" eyebrow="04 / About" title="Engineering, interaction design, and product thinking in the same room.">
       <div class="about-preview">
         <p class="section-lede">I'm Arne, a software engineer based in Belgium. I enjoy working where engineering, interaction design, and product thinking overlap. Outside professional product work, I experiment with generative visuals, Three.js, home automation, and self-hosted systems.</p>
         <NuxtLink class="text-link" to="/about">More about my journey <span aria-hidden="true">↗</span></NuxtLink>
       </div>
     </SectionFrame>
 
-    <SectionFrame id="contact" class="contact-section" eyebrow="07 / Contact" title="Have a complex product that needs clarity?">
+    <SectionFrame id="contact" class="contact-section" eyebrow="05 / Contact" title="Have a complex product that needs clarity?">
       <div class="contact-section__content">
         <p>I'm interested in senior engineering roles where I can combine frontend architecture, technical ownership, and thoughtful product development.</p>
         <div class="contact-section__actions">
@@ -240,8 +224,7 @@ const principles = [
   text-transform: uppercase;
 }
 
-.experience-list,
-.principles-list {
+.experience-list {
   display: grid;
   gap: var(--space-8);
   padding: 0;
@@ -249,8 +232,11 @@ const principles = [
   list-style: none;
 }
 
-.experience-item,
-.principles-list li {
+.experience-intro {
+  margin-bottom: var(--space-8);
+}
+
+.experience-item {
   display: grid;
   grid-template-columns: minmax(7rem, 1fr) 3fr;
   gap: var(--space-6);
@@ -259,7 +245,6 @@ const principles = [
 }
 
 .experience-item h3,
-.principles-list h3,
 .expertise-group h3 {
   margin-bottom: var(--space-2);
   font-family: var(--font-body);
@@ -267,8 +252,7 @@ const principles = [
   font-weight: 600;
 }
 
-.experience-item p,
-.principles-list p {
+.experience-item p {
   max-width: var(--reading-width);
   color: var(--c-text-muted);
 }
@@ -290,6 +274,12 @@ const principles = [
 .expertise-group {
   padding: var(--space-6);
   background: var(--c-background);
+}
+
+.expertise-group p {
+  min-height: 4.5em;
+  margin-bottom: var(--space-4);
+  color: var(--c-text-muted);
 }
 
 .expertise-group ul {
@@ -358,8 +348,7 @@ const principles = [
     grid-template-columns: 1fr;
   }
 
-  .experience-item,
-  .principles-list li {
+  .experience-item {
     grid-template-columns: 1fr;
     gap: var(--space-3);
   }
