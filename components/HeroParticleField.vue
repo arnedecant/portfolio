@@ -22,7 +22,6 @@ type ParticleColors = {
   signal: string
   secondary: string
   amber: string
-  background: string
 }
 
 const canvas = useTemplateRef<HTMLCanvasElement>('canvas')
@@ -55,7 +54,6 @@ const particleColors: ParticleColors = {
   signal: 'var(--c-primary-signal)',
   secondary: 'var(--c-secondary)',
   amber: 'var(--nyx-c-amber-light)',
-  background: 'var(--c-background)',
 }
 
 let context: CanvasRenderingContext2D | null = null
@@ -63,8 +61,16 @@ let animationFrame = 0
 let resizeObserver: ResizeObserver | null = null
 let intersectionObserver: IntersectionObserver | null = null
 let motionQuery: MediaQueryList | null = null
+let mobileQuery: MediaQueryList | null = null
+let pointerQuery: MediaQueryList | null = null
+let dprQuery: MediaQueryList | null = null
+let themeObserver: MutationObserver | null = null
 let lastWidth = 0
 let lastHeight = 0
+let lastFrameTime = 0
+let isMobile = false
+let canUseFinePointer = false
+let colors: ParticleColors = { ...particleColors }
 let randomSeed = 0x6d2b79f5
 
 const seededRandom = () => {
@@ -82,13 +88,16 @@ const getTokenColor = (name: keyof ParticleColors) => {
   return value || particleColors[name]
 }
 
-const getColors = (): ParticleColors => ({
-  primary: getTokenColor('primary'),
-  signal: getTokenColor('signal'),
-  secondary: getTokenColor('secondary'),
-  amber: getTokenColor('amber'),
-  background: getTokenColor('background'),
-})
+const refreshSettings = () => {
+  colors = {
+    primary: getTokenColor('primary'),
+    signal: getTokenColor('signal'),
+    secondary: getTokenColor('secondary'),
+    amber: getTokenColor('amber'),
+  }
+  isMobile = mobileQuery?.matches ?? false
+  canUseFinePointer = pointerQuery?.matches ?? false
+}
 
 const cellKey = (x: number, y: number) => `${Math.floor(x / cellSize)}:${Math.floor(y / cellSize)}`
 
@@ -96,7 +105,6 @@ const initializeParticles = (width: number, height: number) => {
   particles.length = 0
   randomSeed = 0x6d2b79f5
 
-  const isMobile = window.matchMedia('(max-width: 47.99em)').matches
   const density = isMobile ? mobileDensity : desktopDensity
   const motionScale = prefersReducedMotion.value ? 0.45 : 1
   const count = Math.min(maxParticles, Math.max(8, Math.round(width * height * density * motionScale)))
@@ -117,6 +125,8 @@ const initializeParticles = (width: number, height: number) => {
 
 const resizeCanvas = () => {
   if (!canvas.value || !field.value || !context) return
+
+  refreshSettings()
 
   const width = Math.round(field.value.clientWidth)
   const height = Math.round(field.value.clientHeight)
@@ -148,7 +158,6 @@ const rebuildGrid = () => {
 const drawConnections = (colors: ParticleColors) => {
   if (!context || prefersReducedMotion.value) return
 
-  const isMobile = window.matchMedia('(max-width: 47.99em)').matches
   const connectionRadius = isMobile ? mobileConnectionRadius : desktopConnectionRadius
   const connectionOpacity = isMobile ? mobileConnectionOpacity : desktopConnectionOpacity
   const radiusSquared = connectionRadius * connectionRadius
@@ -209,15 +218,15 @@ const drawDots = (colors: ParticleColors) => {
   }
 }
 
-const advanceParticles = () => {
+const advanceParticles = (delta: number) => {
   if (!field.value || prefersReducedMotion.value) return
 
   const width = lastWidth
   const height = lastHeight
 
   for (const particle of particles) {
-    particle.x += particle.vx
-    particle.y += particle.vy
+    particle.x += particle.vx * delta
+    particle.y += particle.vy * delta
 
     if (particle.x < 0) particle.x = width
     if (particle.x > width) particle.x = 0
@@ -226,17 +235,19 @@ const advanceParticles = () => {
   }
 }
 
-const renderFrame = (_time: number) => {
+const renderFrame = (time: number) => {
   if (!context || !isVisible.value) {
     animationFrame = 0
+    lastFrameTime = 0
     return
   }
 
+  const delta = lastFrameTime ? Math.min((time - lastFrameTime) / (1000 / 60), 3) : 1
+  lastFrameTime = time
   pointer.x += (pointer.targetX - pointer.x) * 0.08
   pointer.y += (pointer.targetY - pointer.y) * 0.08
-  advanceParticles()
+  advanceParticles(delta)
 
-  const colors = getColors()
   context.clearRect(0, 0, lastWidth, lastHeight)
   context.globalAlpha = 1
   if (!prefersReducedMotion.value) {
@@ -257,6 +268,7 @@ const stopRendering = () => {
     window.cancelAnimationFrame(animationFrame)
     animationFrame = 0
   }
+  lastFrameTime = 0
 }
 
 const onPointerMove = (event: PointerEvent) => {
@@ -264,7 +276,7 @@ const onPointerMove = (event: PointerEvent) => {
     !field.value ||
     prefersReducedMotion.value ||
     event.pointerType === 'touch' ||
-    !window.matchMedia('(pointer: fine)').matches
+    !canUseFinePointer
   ) {
     pointer.active = false
     return
@@ -295,10 +307,33 @@ const onMotionChange = (event: MediaQueryListEvent) => {
   else startRendering()
 }
 
+const onResponsiveChange = () => {
+  refreshSettings()
+  if (lastWidth && lastHeight) initializeParticles(lastWidth, lastHeight)
+  resizeCanvas()
+}
+
+const onDprChange = () => {
+  dprQuery?.removeEventListener('change', onDprChange)
+  dprQuery = window.matchMedia(`(resolution: ${window.devicePixelRatio || 1}dppx)`)
+  dprQuery.addEventListener('change', onDprChange)
+  resizeCanvas()
+}
+
+const onThemeChange = () => {
+  refreshSettings()
+  if (prefersReducedMotion.value) renderFrame(0)
+}
+
 onBeforeUnmount(() => {
   window.removeEventListener('pointermove', onPointerMove)
   window.removeEventListener('pointerleave', onPointerLeave)
   motionQuery?.removeEventListener('change', onMotionChange)
+  mobileQuery?.removeEventListener('change', onResponsiveChange)
+  pointerQuery?.removeEventListener('change', onResponsiveChange)
+  dprQuery?.removeEventListener('change', onDprChange)
+  themeObserver?.disconnect()
+  window.removeEventListener('resize', resizeCanvas)
   resizeObserver?.disconnect()
   intersectionObserver?.disconnect()
   stopRendering()
@@ -312,16 +347,34 @@ onMounted(() => {
   if (!context) return
 
   motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  mobileQuery = window.matchMedia('(max-width: 47.99em)')
+  pointerQuery = window.matchMedia('(pointer: fine)')
   prefersReducedMotion.value = motionQuery.matches
+  refreshSettings()
   motionQuery.addEventListener('change', onMotionChange)
-  resizeObserver = new ResizeObserver(resizeCanvas)
-  resizeObserver.observe(field.value)
-  intersectionObserver = new IntersectionObserver(([entry]) => {
-    isVisible.value = entry.isIntersecting
-    if (isVisible.value) startRendering()
-    else stopRendering()
-  })
-  intersectionObserver.observe(field.value)
+  mobileQuery.addEventListener('change', onResponsiveChange)
+  pointerQuery.addEventListener('change', onResponsiveChange)
+  dprQuery = window.matchMedia(`(resolution: ${window.devicePixelRatio || 1}dppx)`)
+  dprQuery.addEventListener('change', onDprChange)
+  window.addEventListener('resize', resizeCanvas)
+
+  if (typeof ResizeObserver !== 'undefined') {
+    resizeObserver = new ResizeObserver(resizeCanvas)
+    resizeObserver.observe(field.value)
+  }
+  if (typeof IntersectionObserver !== 'undefined') {
+    intersectionObserver = new IntersectionObserver(([entry]) => {
+      isVisible.value = entry.isIntersecting
+      if (isVisible.value) startRendering()
+      else stopRendering()
+    })
+    intersectionObserver.observe(field.value)
+  }
+  if (typeof MutationObserver !== 'undefined') {
+    themeObserver = new MutationObserver(onThemeChange)
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme', 'style'] })
+    if (document.body) themeObserver.observe(document.body, { attributes: true, attributeFilter: ['class', 'data-theme', 'style'] })
+  }
   window.addEventListener('pointermove', onPointerMove, { passive: true })
   window.addEventListener('pointerleave', onPointerLeave)
 
