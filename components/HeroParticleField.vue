@@ -45,7 +45,10 @@ const maxDpr = 2
 const desktopDensity = 0.000055
 const mobileDensity = 0.000028
 const maxParticles = 150
-const connectionRadius = 132
+const desktopConnectionRadius = 132
+const mobileConnectionRadius = 88
+const desktopConnectionOpacity = 0.2
+const mobileConnectionOpacity = 0.12
 const cursorRadius = 180
 const particleColors: ParticleColors = {
   primary: 'var(--c-primary)',
@@ -143,8 +146,11 @@ const rebuildGrid = () => {
 }
 
 const drawConnections = (colors: ParticleColors) => {
-  if (!context) return
+  if (!context || prefersReducedMotion.value) return
 
+  const isMobile = window.matchMedia('(max-width: 47.99em)').matches
+  const connectionRadius = isMobile ? mobileConnectionRadius : desktopConnectionRadius
+  const connectionOpacity = isMobile ? mobileConnectionOpacity : desktopConnectionOpacity
   const radiusSquared = connectionRadius * connectionRadius
 
   for (const particle of particles) {
@@ -165,7 +171,7 @@ const drawConnections = (colors: ParticleColors) => {
           if (distanceSquared > radiusSquared) continue
 
           const distance = Math.sqrt(distanceSquared)
-          let alpha = (1 - distance / connectionRadius) * 0.2
+          let alpha = (1 - distance / connectionRadius) * connectionOpacity
           const midpointX = (particle.x + other.x) / 2
           const midpointY = (particle.y + other.y) / 2
 
@@ -233,11 +239,13 @@ const renderFrame = (_time: number) => {
   const colors = getColors()
   context.clearRect(0, 0, lastWidth, lastHeight)
   context.globalAlpha = 1
-  rebuildGrid()
-  drawConnections(colors)
+  if (!prefersReducedMotion.value) {
+    rebuildGrid()
+    drawConnections(colors)
+  }
   drawDots(colors)
   context.globalAlpha = 1
-  animationFrame = window.requestAnimationFrame(renderFrame)
+  animationFrame = prefersReducedMotion.value ? 0 : window.requestAnimationFrame(renderFrame)
 }
 
 const startRendering = () => {
@@ -281,7 +289,10 @@ const onPointerLeave = () => {
 const onMotionChange = (event: MediaQueryListEvent) => {
   prefersReducedMotion.value = event.matches
   pointer.active = false
-  resizeCanvas()
+  if (lastWidth && lastHeight) initializeParticles(lastWidth, lastHeight)
+  stopRendering()
+  if (prefersReducedMotion.value) renderFrame(0)
+  else startRendering()
 }
 
 onBeforeUnmount(() => {
