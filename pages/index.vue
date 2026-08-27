@@ -47,6 +47,7 @@ const expertise = [
 <template>
   <main class="home-page">
     <section class="home-hero" aria-labelledby="hero-title">
+      <HeroParticleField />
       <div class="home-hero__inner">
         <TechnicalLabel>SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST</TechnicalLabel>
         <h1 id="hero-title">I build complex interfaces into clear, dependable products.</h1>
@@ -124,6 +125,8 @@ const expertise = [
 
 <style scoped lang="scss">
 .home-hero {
+  position: relative;
+  isolation: isolate;
   min-height: calc(100dvh - 4.5rem);
   display: grid;
   align-items: center;
@@ -137,6 +140,8 @@ const expertise = [
 }
 
 .home-hero__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: var(--space-6);
 }
