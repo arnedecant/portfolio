@@ -6,7 +6,7 @@ const props = withDefaults(defineProps<{
   title: 'Featured projects',
 })
 
-const { data: projects } = await useAsyncData(() => queryCollection('projects')
+const { data: projects } = await useAsyncData('homepage-featured-projects', () => queryCollection('projects')
   .where('featured', '=', true)
   .order('order', 'ASC')
   .all())
