@@ -360,22 +360,19 @@ onBeforeUnmount(stopSectionObserver)
     bottom: 3.5rem;
     left: var(--page-gutter);
     display: flex;
+    gap: var(--space-2);
     justify-content: flex-end;
   }
 
-  .site-nav__socials :deep(ul) {
-    gap: var(--space-4);
-  }
-
   .site-nav__socials :deep(a) {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
     justify-content: center;
     color: var(--c-text-muted);
   }
 
   .site-nav__socials :deep(.icon) {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
 
