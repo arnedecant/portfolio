@@ -1091,7 +1091,7 @@ The portfolio is launch-ready when:
 ### Most Important Content Decisions
 
 - Primary headline: `I give complex products a center of gravity.`
-- Lead identity: senior software engineer and creative technologist.
+- Lead identity: senior software engineer and web architect.
 - Core strengths: frontend architecture, product ownership, reusable systems, real-time media, interactive 3D, complex UX.
 - Featured projects should be curated, not exhaustive.
 - Nyx Kit is the flagship personal project.
