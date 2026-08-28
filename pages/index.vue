@@ -1,47 +1,7 @@
 <script setup lang="ts">
-const experience = [
-  {
-    period: '2014–2018',
-    company: 'RIS',
-    role: 'Software Developer',
-    summary: 'Built websites, email templates, SEO workflows, deployments, and custom applications for varied customers.',
-  },
-  {
-    period: '2018–2020',
-    company: 'Nanopixel',
-    role: 'Software Engineer · Lead Developer · Product Owner',
-    summary: 'Built browser and kiosk-based 3D configurators, interactive maps, visualization tools, and Showreal, a multi-screen real-estate sales experience.',
-  },
-  {
-    period: '2020–2026',
-    company: 'Kiswe',
-    role: 'Senior Software Engineer',
-    summary: 'Worked on browser-based products for live video production, remote participation, and large-scale streaming operations.',
-  },
-]
-
-const expertise = [
-  {
-    title: 'Frontend architecture',
-    description: 'Shape application structure and component APIs that keep complex workflows understandable as products evolve.',
-    items: ['Vue 3', 'TypeScript', 'Nuxt', 'Complex state and workflows', 'Component API design', 'Performance and maintainability'],
-  },
-  {
-    title: 'Design systems and developer experience',
-    description: 'Make the next change easier through reusable primitives, clear documentation, accessible defaults, and predictable APIs.',
-    items: ['Reusable component libraries', 'Storybook', 'Theming and design tokens', 'Accessibility', 'Documentation', 'Package architecture'],
-  },
-  {
-    title: 'Quality and delivery',
-    description: 'Treat testing, review, and delivery as part of the product, not a final checkpoint.',
-    items: ['Vitest', 'Playwright', 'Static analysis', 'Code review', 'CI/CD', 'Testing strategy'],
-  },
-  {
-    title: 'Interactive and real-time systems',
-    description: 'Work comfortably where timing, state, media, and visual feedback make the interface harder to reason about.',
-    items: ['Three.js', 'WebGL and GLSL', 'Web Audio', 'WebSockets', 'Live video workflows', 'Multi-screen experiences'],
-  },
-]
+const { data: home } = await useAsyncData(() =>
+  queryCollection('pages').path('/pages/home').first(),
+)
 </script>
 
 <template>
@@ -49,16 +9,16 @@ const expertise = [
     <section class="home-hero" aria-labelledby="hero-title">
       <HeroParticleField />
       <div class="home-hero__inner">
-        <TechnicalLabel>SENIOR SOFTWARE ENGINEER · WEB ARCHITECT</TechnicalLabel>
-        <h1 id="hero-title">I give complex products a center of gravity.</h1>
-        <p class="home-hero__lede">For over a decade, I’ve shaped real-time tools, design systems and interactive experiences into products that feel coherent from the inside out.</p>
+        <TechnicalLabel>{{ home?.heroLabel }}</TechnicalLabel>
+        <h1 id="hero-title">{{ home?.heroTitle }}</h1>
+        <p class="home-hero__lede">{{ home?.heroLede }}</p>
         <div class="home-hero__actions">
-          <CtaButton to="#work">Explore my work</CtaButton>
-          <CtaButton to="/about">Read about me</CtaButton>
+          <CtaButton to="#work">{{ home?.heroPrimaryAction }}</CtaButton>
+          <CtaButton to="/about">{{ home?.heroSecondaryAction }}</CtaButton>
         </div>
         <div class="home-hero__meta">
-          <span>Based in Belgium</span>
-          <span>Available for senior software engineering opportunities</span>
+          <span>{{ home?.heroLocation }}</span>
+          <span>{{ home?.heroAvailability }}</span>
         </div>
         <SocialLinks />
       </div>
@@ -67,19 +27,19 @@ const expertise = [
     <section id="work" class="work-section">
       <div class="container">
         <div class="section-heading">
-          <TechnicalLabel>01 / Selected work</TechnicalLabel>
-          <h2>Systems I build, shape, and keep understandable.</h2>
+          <TechnicalLabel>{{ home?.workLabel }}</TechnicalLabel>
+          <h2>{{ home?.workTitle }}</h2>
         </div>
-        <p class="section-lede">A selection of personal projects and experiments. Each one is a way to work through a different kind of complexity, from component APIs to physical telemetry and real-time graphics.</p>
-        <ProjectSummaryGrid title="Featured projects" />
-        <NuxtLink class="text-link" to="/projects">Browse all projects <span aria-hidden="true">↗</span></NuxtLink>
+        <p class="section-lede">{{ home?.workLede }}</p>
+        <ProjectSummaryGrid :title="home?.workProjectsTitle" />
+        <NuxtLink class="text-link" to="/projects">{{ home?.workBrowseLabel }} <span aria-hidden="true">↗</span></NuxtLink>
       </div>
     </section>
 
-    <SectionFrame id="experience" eyebrow="02 / Experience" title="A decade moving from full-lifecycle web work to high-stakes product systems.">
-      <p class="section-lede experience-intro">I'm a senior software engineer focused on frontend architecture, product ownership, and complex interactive systems. My work spans livestream production, real-time communication, browser-based 3D experiences, and reusable Vue component systems.</p>
+    <SectionFrame id="experience" :eyebrow="home?.experienceLabel" :title="home?.experienceTitle">
+      <p class="section-lede experience-intro">{{ home?.experienceIntro }}</p>
       <ol class="experience-list">
-        <li v-for="item in experience" :key="item.company" class="experience-item">
+        <li v-for="item in home?.experience ?? []" :key="item.company" class="experience-item">
           <TechnicalLabel as="span">{{ item.period }}</TechnicalLabel>
           <div>
             <h3>{{ item.company }}</h3>
@@ -90,9 +50,9 @@ const expertise = [
       </ol>
     </SectionFrame>
 
-    <SectionFrame id="expertise" eyebrow="03 / Practice" title="I work across the product, interface, and system behind it.">
+    <SectionFrame id="expertise" :eyebrow="home?.practiceLabel" :title="home?.practiceTitle">
       <div class="expertise-grid">
-        <article v-for="group in expertise" :key="group.title" class="expertise-group">
+        <article v-for="group in home?.expertise ?? []" :key="group.title" class="expertise-group">
           <h3>{{ group.title }}</h3>
           <p>{{ group.description }}</p>
           <ul>
@@ -102,22 +62,22 @@ const expertise = [
       </div>
     </SectionFrame>
 
-    <SectionFrame id="about" eyebrow="04 / About" title="Engineering, interaction design, and product thinking in the same room.">
+    <SectionFrame id="about" :eyebrow="home?.aboutLabel" :title="home?.aboutTitle">
       <div class="about-preview">
-        <p class="section-lede">I'm Arne, a software engineer based in Belgium. I enjoy working where engineering, interaction design, and product thinking overlap. Outside professional product work, I experiment with generative visuals, Three.js, home automation, and self-hosted systems.</p>
-        <NuxtLink class="text-link" to="/about">More about my journey <span aria-hidden="true">↗</span></NuxtLink>
+        <p class="section-lede">{{ home?.aboutCopy }}</p>
+        <NuxtLink class="text-link" to="/about">{{ home?.aboutLinkLabel }} <span aria-hidden="true">↗</span></NuxtLink>
       </div>
     </SectionFrame>
 
-    <SectionFrame id="contact" class="contact-section" eyebrow="05 / Contact" title="Have a complex product that needs clarity?">
+    <SectionFrame id="contact" class="contact-section" :eyebrow="home?.contactLabel" :title="home?.contactTitle">
       <div class="contact-section__content">
-        <p>I'm interested in senior engineering roles where I can combine frontend architecture, technical ownership, and thoughtful product development.</p>
+        <p>{{ home?.contactCopy }}</p>
         <div class="contact-section__actions">
-          <CtaButton to="mailto:hello@arnedecant.be" variant="critical">Email me</CtaButton>
-          <NuxtLink to="https://www.linkedin.com/in/arne-decant-970b9282/" target="_blank">Connect on LinkedIn ↗</NuxtLink>
-          <NuxtLink to="https://github.com/arnedecant" target="_blank">View GitHub ↗</NuxtLink>
+          <CtaButton to="mailto:hello@arnedecant.be" variant="critical">{{ home?.contactEmailLabel }}</CtaButton>
+          <NuxtLink to="https://www.linkedin.com/in/arne-decant-970b9282/" target="_blank">{{ home?.contactLinkedInLabel }}</NuxtLink>
+          <NuxtLink to="https://github.com/arnedecant" target="_blank">{{ home?.contactGitHubLabel }}</NuxtLink>
         </div>
-        <p class="contact-section__location">Belgium · Available for senior software engineering opportunities</p>
+        <p class="contact-section__location">{{ home?.contactLocation }}</p>
       </div>
     </SectionFrame>
   </main>
