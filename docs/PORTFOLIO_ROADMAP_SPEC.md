@@ -396,7 +396,7 @@ Confirm the following before final launch copy is written:
 
 Source content from `docs/design_prompt.md`:
 
-- Eyebrow: `SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST`
+- Eyebrow: `SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST · WEB ARCHITECT`
 - Headline: `I build complex interfaces into clear, dependable products.`
 - Supporting copy: `Senior software engineer with 10+ years of experience building production tools, real-time experiences, design systems and interactive 3D applications.`
 - Primary CTA: `Explore my work`

@@ -70,7 +70,7 @@ Create an abstract real-time media signal travelling through a spatial network, 
 Hero content:
 
 Eyebrow:
-SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST
+SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST · WEB ARCHITECT
 
 Headline:
 I build complex interfaces into clear, dependable products.
