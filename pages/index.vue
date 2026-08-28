@@ -71,7 +71,6 @@ const expertise = [
           <h2>Systems I build, shape, and keep understandable.</h2>
         </div>
         <p class="section-lede">A selection of personal projects and experiments. Each one is a way to work through a different kind of complexity, from component APIs to physical telemetry and real-time graphics.</p>
-        <SignalDiagram class="section-signal section-signal--work" variant="work" />
         <ProjectSummaryGrid title="Featured projects" />
         <NuxtLink class="text-link" to="/projects">Browse all projects <span aria-hidden="true">↗</span></NuxtLink>
       </div>
@@ -79,7 +78,6 @@ const expertise = [
 
     <SectionFrame id="experience" eyebrow="02 / Experience" title="A decade moving from full-lifecycle web work to high-stakes product systems.">
       <p class="section-lede experience-intro">I'm a senior software engineer focused on frontend architecture, product ownership, and complex interactive systems. My work spans livestream production, real-time communication, browser-based 3D experiences, and reusable Vue component systems.</p>
-      <SignalDiagram class="section-signal section-signal--experience" variant="experience" />
       <ol class="experience-list">
         <li v-for="item in experience" :key="item.company" class="experience-item">
           <TechnicalLabel as="span">{{ item.period }}</TechnicalLabel>
@@ -220,19 +218,6 @@ const expertise = [
   gap: var(--space-6);
 }
 
-.section-signal {
-  width: 100%;
-  max-width: 100%;
-}
-
-.section-signal--work {
-  margin: var(--space-8) 0 var(--space-12);
-}
-
-.section-signal--experience {
-  margin: var(--space-2) 0 var(--space-8);
-}
-
 .text-link {
   display: inline-flex;
   gap: var(--space-2);
@@ -364,14 +349,6 @@ const expertise = [
 }
 
 @media (max-width: 47.99em) {
-  .section-signal--work {
-    margin: var(--space-6) 0 var(--space-8);
-  }
-
-  .section-signal--experience {
-    margin: 0 0 var(--space-6);
-  }
-
   .expertise-grid {
     grid-template-columns: 1fr;
   }
