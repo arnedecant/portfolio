@@ -70,13 +70,13 @@ Create an abstract real-time media signal travelling through a spatial network, 
 Hero content:
 
 Eyebrow:
-SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST
+SENIOR SOFTWARE ENGINEER · WEB ARCHITECT
 
 Headline:
-I build complex interfaces into clear, dependable products.
+I give complex products a center of gravity.
 
 Supporting copy:
-Senior software engineer with 10+ years of experience building production tools, real-time experiences, design systems and interactive 3D applications.
+For over a decade, I’ve shaped real-time tools, design systems and interactive experiences into products that feel coherent from the inside out.
 
 Primary CTA:
 Explore my work

@@ -16,7 +16,7 @@ defineProps<{
         :aria-label="social.ariaLabel"
       >
         <Icon v-if="social.icon" :name="social.icon" aria-hidden="true" />
-        <span>{{ social.label }}</span>
+        <span class="social-links__label">{{ social.label }}</span>
       </NuxtLink>
     </li>
   </ul>
@@ -45,11 +45,11 @@ defineProps<{
   color: var(--c-primary);
 }
 
-.social-links .icon {
+.social-links .iconify {
   font-size: 1.125rem;
 }
 
-.social-links--compact a span {
+.social-links--compact .social-links__label {
   position: absolute;
   width: 1px;
   height: 1px;

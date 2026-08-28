@@ -147,7 +147,7 @@ Update the hero styles so the canvas fills only the hero and cannot block links:
 }
 ```
 
-Do not add a second global background or move the existing `AtmosphereLayer` out of the layout.
+Do not add a second global background layer. The hero particle field is the only added visual effect.
 
 - [ ] **Step 3: Attach pointer tracking without blocking navigation**
 

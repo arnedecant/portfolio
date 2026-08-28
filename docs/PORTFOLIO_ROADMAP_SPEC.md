@@ -396,9 +396,9 @@ Confirm the following before final launch copy is written:
 
 Source content from `docs/design_prompt.md`:
 
-- Eyebrow: `SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST`
-- Headline: `I build complex interfaces into clear, dependable products.`
-- Supporting copy: `Senior software engineer with 10+ years of experience building production tools, real-time experiences, design systems and interactive 3D applications.`
+- Eyebrow: `SENIOR SOFTWARE ENGINEER · WEB ARCHITECT`
+- Headline: `I give complex products a center of gravity.`
+- Supporting copy: `For over a decade, I’ve shaped real-time tools, design systems and interactive experiences into products that feel coherent from the inside out.`
 - Primary CTA: `Explore my work`
 - Secondary CTA: `View resume`
 - Compact links: GitHub, LinkedIn, email, resume
@@ -633,7 +633,6 @@ Build or refactor these first:
 | `TechnicalLabel` | Mono/caps metadata labels used across sections |
 | `CtaButton` | Final Nyx button variants replacing old aurora style; wrap or extend Nyx Kit button primitives if available |
 | `SocialLinks` | GitHub, LinkedIn, email, optional Instagram with accessible labels |
-| `AtmosphereLayer` | Grain/noise, soft grid lines, low-cost background ambience |
 | `ResponsiveVisual` | Wrapper for images, diagrams, videos, and abstract visuals with alt text |
 
 ### Homepage Components
@@ -665,7 +664,6 @@ Build or refactor these first:
 
 | Component | Responsibility |
 | --- | --- |
-| `SignalDiagram` | Lightweight SVG/CSS diagrams for workflows such as Showreal screens or Kiswe production flows |
 | `TokenPlate` | Visual treatment for design tokens/component anatomy in Nyx Kit sections |
 | `MediaSignalVisual` | Abstract visual for livestream, audio, or real-time media flows |
 | `ExperimentVisual` | Expressive visual wrapper for older creative experiments |
@@ -725,7 +723,7 @@ Establish the reusable site foundation before rebuilding visible sections.
 - Refactor `CtaButton.vue` to use final button variants and design tokens.
 - Use `nyx-kit` components for standard primitives where available, especially buttons, form-like controls, overlays, menus, and reusable interaction states.
 - Introduce a site shell with navigation and footer, either through Nuxt layouts or top-level page composition.
-- Add `SiteNav`, `SiteFooter`, `SectionFrame`, `TechnicalLabel`, `SocialLinks`, and `AtmosphereLayer`.
+- Add `SiteNav`, `SiteFooter`, `SectionFrame`, `TechnicalLabel`, and `SocialLinks`.
 - Extend `app.config.ts` for GitHub, LinkedIn, email, Instagram, and resume metadata.
 - Extend `content.config.ts` to support richer project metadata and future case-study content.
 - Add any needed asset directories for project media, abstract diagrams, resume, and visual references.
@@ -794,12 +792,10 @@ Add the atmospheric, interactive qualities that make the portfolio distinctive, 
 - Respect `prefers-reduced-motion` by reducing or disabling particle movement and other animations.
 - Use a lighter mobile hero visual than desktop.
 - Add subtle cursor response only where it improves atmosphere and does not interfere with reading.
-- Add fine-line signal diagrams to the positioning, experience, and project sections.
-- Give Nyx Kit the largest project visual footprint.
-- Give Anthos and Nyx Notes supporting positions in the Phase 1 homepage structure using the source-backed facts captured in Phase 0, while keeping screenshots, demos, public links, and final launch claims conservative until assets are confirmed.
-- Give Audio Visualiser a dramatic full-width or high-impact visual moment.
-- Keep each project composition distinct rather than using a repeated card grid.
-- Add hover/focus states that are visible and restrained.
+- Keep the hero particle field calm, readable, and visually subordinate to the hero copy.
+- Give the hero a lighter mobile visual treatment than desktop while preserving the same content hierarchy.
+- Keep the hero particle field's cursor response restrained and non-interactive.
+- Defer section diagrams and project-specific visual compositions until there is a concrete content need for them.
 
 ### Acceptance Criteria
 
@@ -1094,8 +1090,8 @@ The portfolio is launch-ready when:
 
 ### Most Important Content Decisions
 
-- Primary headline: `I build complex interfaces into clear, dependable products.`
-- Lead identity: senior software engineer and creative technologist.
+- Primary headline: `I give complex products a center of gravity.`
+- Lead identity: senior software engineer and web architect.
 - Core strengths: frontend architecture, product ownership, reusable systems, real-time media, interactive 3D, complex UX.
 - Featured projects should be curated, not exhaustive.
 - Nyx Kit is the flagship personal project.

@@ -239,15 +239,6 @@ figure {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .project-summary,
-  figure figcaption::after,
-  .deco {
-    transition: none;
-    animation: none;
-  }
-}
-
 @media (hover: none) {
   .project-summary figcaption::after {
     animation-play-state: running;
