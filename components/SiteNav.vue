@@ -98,6 +98,7 @@ onBeforeUnmount(stopSectionObserver)
         <NuxtLink v-if="config.resume" class="site-nav__resume" :to="config.resume.to" target="_blank">
           {{ config.resume.label }}
         </NuxtLink>
+        <SocialLinks compact class="site-nav__socials" />
       </nav>
     </div>
   </header>
@@ -152,6 +153,10 @@ onBeforeUnmount(stopSectionObserver)
 }
 
 .site-nav__menu-brand {
+  display: none;
+}
+
+.site-nav__socials {
   display: none;
 }
 
@@ -347,6 +352,30 @@ onBeforeUnmount(stopSectionObserver)
     letter-spacing: 0.08em;
     line-height: 1;
     text-transform: uppercase;
+  }
+
+  .site-nav__socials {
+    position: absolute;
+    right: var(--page-gutter);
+    bottom: 3.5rem;
+    left: var(--page-gutter);
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .site-nav__socials :deep(ul) {
+    gap: var(--space-4);
+  }
+
+  .site-nav__socials :deep(a) {
+    width: 2.25rem;
+    height: 2.25rem;
+    justify-content: center;
+    color: var(--c-text-muted);
+  }
+
+  .site-nav__socials :deep(.icon) {
+    font-size: 1.25rem;
   }
 }
 
