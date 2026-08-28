@@ -36,11 +36,12 @@ const prefersReducedMotion = import.meta.client
 </script>
 
 <template>
-  <div class="signal-diagram" aria-hidden="true">
+  <div class="signal-diagram">
     <svg
       viewBox="0 0 640 180"
       preserveAspectRatio="none"
       role="presentation"
+      aria-hidden="true"
     >
       <path
         class="signal-diagram__guide"
@@ -64,9 +65,9 @@ const prefersReducedMotion = import.meta.client
           :y="node.y + 24"
         >{{ node.label }}</text>
       </template>
-      <circle class="signal-diagram__pulse" r="3" cy="0">
+      <circle v-if="!prefersReducedMotion" class="signal-diagram__pulse" r="3" cy="0">
         <animateMotion
-          :dur="prefersReducedMotion ? '0s' : '8s'"
+          dur="8s"
           repeatCount="indefinite"
           :path="routePath"
         />
@@ -141,9 +142,4 @@ const prefersReducedMotion = import.meta.client
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .signal-diagram__pulse {
-    opacity: 0.72;
-  }
-}
 </style>
