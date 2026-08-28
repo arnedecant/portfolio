@@ -110,7 +110,7 @@ const nodes = computed<SignalNode[]>(() => props.variant === 'experience'
 
 .signal-diagram__node {
   fill: var(--c-background);
-  stroke: var(--c-secondary, var(--nyx-c-teal));
+  stroke: var(--nyx-c-secondary, var(--nyx-c-teal));
   stroke-width: 1;
   opacity: 0.78;
 }
