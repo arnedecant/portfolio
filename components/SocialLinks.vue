@@ -45,7 +45,7 @@ defineProps<{
   color: var(--c-primary);
 }
 
-.social-links .icon {
+.social-links .iconify {
   font-size: 1.125rem;
 }
 

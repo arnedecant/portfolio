@@ -371,8 +371,10 @@ onBeforeUnmount(stopSectionObserver)
     color: var(--c-text-muted);
   }
 
-  .site-nav__socials :deep(.icon) {
+  .site-nav__socials :deep(.iconify) {
     font-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
