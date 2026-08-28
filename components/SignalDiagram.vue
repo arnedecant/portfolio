@@ -31,8 +31,6 @@ const nodes = computed<SignalNode[]>(() => props.variant === 'experience'
       { label: 'INTERFACE', x: 474, y: 88 },
     ])
 
-const prefersReducedMotion = import.meta.client
-  && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 </script>
 
 <template>
@@ -65,7 +63,7 @@ const prefersReducedMotion = import.meta.client
           :y="node.y + 24"
         >{{ node.label }}</text>
       </template>
-      <circle v-if="!prefersReducedMotion" class="signal-diagram__pulse" r="3" cy="0">
+      <circle class="signal-diagram__pulse" r="3" cy="0">
         <animateMotion
           dur="8s"
           repeatCount="indefinite"
@@ -139,6 +137,12 @@ const prefersReducedMotion = import.meta.client
   .signal-diagram__label {
     font-size: 0.625rem;
     letter-spacing: 0.08em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-diagram__pulse {
+    display: none;
   }
 }
 
