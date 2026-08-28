@@ -1,173 +1,64 @@
-# Portfolio Site
+# Arne Decant
 
-A modern, content-driven portfolio website built with Nuxt and deployed on Netlify. Features a headless CMS workflow with Nuxt Studio for seamless content editing directly from the browser.
+Senior software engineer and web architect based in Belgium. I build complex
+products, interactive tools, and reusable systems that feel clear and coherent
+for the people using them.
 
-## 🚀 Tech Stack
+I work mostly across frontend architecture, design systems, real-time
+interfaces, and product development. My background includes live video
+production, browser-based 3D experiences, component libraries, and full-
+lifecycle web work.
 
-### Core Framework
-- **[Nuxt 4](https://nuxt.com/)** - The Vue.js meta-framework for building modern web applications
-- **[Vue 3](https://vuejs.org/)** - Progressive JavaScript framework
-- **TypeScript** - Type-safe development
+**[Visit my portfolio](https://arnedecant.github.io)** ·
+**[GitHub](https://github.com/arnedecant)** ·
+**[LinkedIn](https://www.linkedin.com/in/arne-decant-970b9282/)** ·
+**[Email me](mailto:hello@arnedecant.be)**
 
-### Content Management
-- **[Nuxt Content](https://content.nuxt.com/)** - File-based CMS for managing markdown content
-- **[Nuxt Studio](https://studio.nuxt.com/)** - Visual content editor with GitHub integration
-- **Zod** - Schema validation for content collections
+## Selected Work
 
-### Styling
-- **SCSS** - CSS preprocessor with custom variables and mixins
-- **Custom design system** - Modular component-based styling
+- **[Nyx Kit](https://github.com/NyxKit/nyx-kit)** - A reusable Vue component
+  library focused on consistent interfaces, accessible defaults, and clear
+  APIs. [Explore the documentation](https://nyxkit.github.io/nyx-kit).
+- **[Video Projection Mapping](https://github.com/arnedecant/video-projection-mapping)**
+  : An experiment in using web technologies to project visuals onto physical
+  spaces and shapes. [View the live demo](https://arnedecant.github.io/video-projection-mapping/).
+- **[WebGL Webcam Audio Visualiser](https://github.com/arnedecant/audio-visualiser)**
+  : A real-time graphics experiment where camera pixels and audio drive a
+  particle system. [View the live demo](https://dev.arnedecant.be/webgl/webcam-audio-visualizer/).
 
-### Development & Deployment
-- **[Netlify](https://www.netlify.com/)** - Hosting and serverless functions
-- **pnpm** - Fast, disk space efficient package manager
-- **ESLint** - Code quality and consistency
+## About This Repository
 
-### Additional Modules
-- **@nuxt/fonts** - Optimized font loading
-- **@nuxt/icon** - Icon component library
-- **@nuxt/image** - Optimized image handling
-- **nyx-kit** - Custom utility library
+This repository contains my personal portfolio site: a content-driven Nuxt
+application where the pages and project entries live in Markdown. It is both a
+place to explore my work and a small example of how I approach frontend
+architecture, content modeling, and visual detail.
 
-## 📁 Project Structure
+The site is built with:
 
+- [Nuxt 4](https://nuxt.com/) and [Vue 3](https://vuejs.org/)
+- TypeScript and Zod for typed, validated content
+- [Nuxt Content](https://content.nuxt.com/) for the Markdown content layer
+- SCSS and a custom component-based design system
+- [Nuxt Studio](https://studio.nuxt.com/) for browser-based content editing
+
+## Run Locally
+
+Requirements: Node.js and [pnpm](https://pnpm.io/).
+
+```bash
+pnpm install
+pnpm dev
 ```
-├── assets/
-│   └── styles/          # SCSS stylesheets (variables, reset, base, main)
-├── components/          # Vue components
-├── content/
-│   ├── pages/           # Markdown pages (home, about, projects)
-│   └── projects/        # Project markdown files
-├── pages/               # Nuxt page components
-├── public/              # Static assets
-├── shared/              # Shared utilities and types
-├── content.config.ts    # Content collection schemas
-├── nuxt.config.ts       # Nuxt configuration
-└── netlify.toml         # Netlify deployment config
+
+The development server runs at `http://localhost:9001`.
+
+Useful commands:
+
+```bash
+pnpm build    # Build for production
+pnpm generate # Generate a static site
+pnpm preview  # Preview the production build
 ```
 
-## 🛠️ Development Workflow
-
-### Content Management with Nuxt Studio
-
-This portfolio uses **Nuxt Studio** for visual content editing:
-
-1. **GitHub Integration**: Content is stored in markdown files in the repository
-2. **Visual Editor**: Edit content directly in the browser at `/studio` (when enabled)
-3. **Schema Validation**: Content is validated using Zod schemas defined in `content.config.ts`
-4. **Live Preview**: See changes in real-time before committing
-
-The content structure includes:
-- **Pages**: Home, About, Projects pages with SEO metadata
-- **Projects**: Project showcase with tech stack, links, thumbnails, and featured flags
-
-### Local Development
-
-1. **Install dependencies**:
-   ```bash
-   pnpm install
-   ```
-
-2. **Start development server**:
-   ```bash
-   pnpm dev
-   ```
-   The site will be available at `http://localhost:3000`
-
-3. **Edit content**:
-   - Edit markdown files in `content/` directory
-   - Or use Nuxt Studio at `/studio` (if enabled)
-   - Changes are hot-reloaded automatically
-
-4. **Build for production**:
-   ```bash
-   pnpm build
-   ```
-
-5. **Preview production build**:
-   ```bash
-   pnpm preview
-   ```
-
-## 🚢 Deployment
-
-### Netlify Configuration
-
-The site is configured for deployment on Netlify:
-
-- **Build Command**: `pnpm run build`
-- **Publish Directory**: `dist`
-- **Serverless Functions**: Automatically detected in `dist`
-- **SSR**: Enabled for server-side rendering
-- **Prerendering**: Homepage and linked pages are prerendered for optimal performance
-
-### Deployment Workflow
-
-1. **Automatic Deployments**: 
-   - Pushes to `main` branch trigger automatic builds
-   - Pull requests get preview deployments
-
-2. **Content Updates**:
-   - Edit content via Nuxt Studio or directly in GitHub
-   - Changes are automatically deployed after commit
-
-3. **Environment Variables**:
-   - Nuxt Studio GitHub OAuth credentials are configured in Netlify
-   - Secrets are accessed at runtime (not inlined during build)
-
-## 📝 Content Collections
-
-Content is organized into two collections:
-
-### Pages Collection
-- Type: `page`
-- Location: `content/pages/*.md`
-- Schema: `title`, `slug`, `eyebrow`, `seoDescription`
-
-### Projects Collection
-- Type: `data`
-- Location: `content/projects/*.md`
-- Schema: `title`, `slug`, `summary`, `tech[]`, `featured`, `github`, `link`, `order`, `thumbnail`, `logo`
-
-## 🎨 Features
-
-- **Server-Side Rendering (SSR)**: Fast initial page loads
-- **Content-Driven**: Easy content updates without code changes
-- **Visual Editing**: Nuxt Studio for non-technical content editing
-- **Type Safety**: TypeScript and Zod schemas throughout
-- **Optimized Assets**: Image optimization and font loading
-- **SEO Friendly**: Prerendered pages with metadata support
-- **Smooth Scrolling**: Enhanced navigation experience
-
-## 📦 Scripts
-
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm preview` - Preview production build locally
-- `pnpm generate` - Generate static site
-- `pnpm clean` - Remove build artifacts and dependencies
-
-## 🔧 Configuration
-
-### Nuxt Studio
-
-Nuxt Studio is configured with GitHub integration:
-- Repository: `arnedecant/arnedecant.github.io`
-- Branch: `main`
-- OAuth credentials stored in Netlify environment variables
-
-### Content Storage
-
-- Uses in-memory storage (default) for Netlify compatibility
-- SQLite connectors are not used in serverless environments
-
-## 📚 Learn More
-
-- [Nuxt Documentation](https://nuxt.com/docs)
-- [Nuxt Content Documentation](https://content.nuxt.com/)
-- [Nuxt Studio Documentation](https://studio.nuxt.com/)
-- [Netlify Documentation](https://docs.netlify.com/)
-
----
-
-Built with ❤️ using Nuxt and deployed on Netlify
+Content can be edited directly in `content/` or through Nuxt Studio when it is
+enabled.
