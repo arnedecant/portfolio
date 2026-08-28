@@ -1,6 +1,5 @@
 <template>
   <div class="site-shell">
-    <AtmosphereLayer />
     <SiteNav />
     <slot />
     <SiteFooter />

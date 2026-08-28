@@ -633,7 +633,6 @@ Build or refactor these first:
 | `TechnicalLabel` | Mono/caps metadata labels used across sections |
 | `CtaButton` | Final Nyx button variants replacing old aurora style; wrap or extend Nyx Kit button primitives if available |
 | `SocialLinks` | GitHub, LinkedIn, email, optional Instagram with accessible labels |
-| `AtmosphereLayer` | Grain/noise, soft grid lines, low-cost background ambience |
 | `ResponsiveVisual` | Wrapper for images, diagrams, videos, and abstract visuals with alt text |
 
 ### Homepage Components
@@ -665,7 +664,6 @@ Build or refactor these first:
 
 | Component | Responsibility |
 | --- | --- |
-| `SignalDiagram` | Lightweight SVG/CSS diagrams for workflows such as Showreal screens or Kiswe production flows |
 | `TokenPlate` | Visual treatment for design tokens/component anatomy in Nyx Kit sections |
 | `MediaSignalVisual` | Abstract visual for livestream, audio, or real-time media flows |
 | `ExperimentVisual` | Expressive visual wrapper for older creative experiments |
@@ -725,7 +723,7 @@ Establish the reusable site foundation before rebuilding visible sections.
 - Refactor `CtaButton.vue` to use final button variants and design tokens.
 - Use `nyx-kit` components for standard primitives where available, especially buttons, form-like controls, overlays, menus, and reusable interaction states.
 - Introduce a site shell with navigation and footer, either through Nuxt layouts or top-level page composition.
-- Add `SiteNav`, `SiteFooter`, `SectionFrame`, `TechnicalLabel`, `SocialLinks`, and `AtmosphereLayer`.
+- Add `SiteNav`, `SiteFooter`, `SectionFrame`, `TechnicalLabel`, and `SocialLinks`.
 - Extend `app.config.ts` for GitHub, LinkedIn, email, Instagram, and resume metadata.
 - Extend `content.config.ts` to support richer project metadata and future case-study content.
 - Add any needed asset directories for project media, abstract diagrams, resume, and visual references.
