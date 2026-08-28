@@ -794,12 +794,10 @@ Add the atmospheric, interactive qualities that make the portfolio distinctive, 
 - Respect `prefers-reduced-motion` by reducing or disabling particle movement and other animations.
 - Use a lighter mobile hero visual than desktop.
 - Add subtle cursor response only where it improves atmosphere and does not interfere with reading.
-- Add fine-line signal diagrams to the positioning, experience, and project sections.
-- Give Nyx Kit the largest project visual footprint.
-- Give Anthos and Nyx Notes supporting positions in the Phase 1 homepage structure using the source-backed facts captured in Phase 0, while keeping screenshots, demos, public links, and final launch claims conservative until assets are confirmed.
-- Give Audio Visualiser a dramatic full-width or high-impact visual moment.
-- Keep each project composition distinct rather than using a repeated card grid.
-- Add hover/focus states that are visible and restrained.
+- Keep the hero particle field calm, readable, and visually subordinate to the hero copy.
+- Give the hero a lighter mobile visual treatment than desktop while preserving the same content hierarchy.
+- Keep the hero particle field's cursor response restrained and non-interactive.
+- Defer section diagrams and project-specific visual compositions until there is a concrete content need for them.
 
 ### Acceptance Criteria
 
