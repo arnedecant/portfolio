@@ -396,9 +396,9 @@ Confirm the following before final launch copy is written:
 
 Source content from `docs/design_prompt.md`:
 
-- Eyebrow: `SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST · WEB ARCHITECT`
-- Headline: `I build complex interfaces into clear, dependable products.`
-- Supporting copy: `Senior software engineer with 10+ years of experience building production tools, real-time experiences, design systems and interactive 3D applications.`
+- Eyebrow: `SENIOR SOFTWARE ENGINEER · WEB ARCHITECT`
+- Headline: `I give complex products a center of gravity.`
+- Supporting copy: `For over a decade, I’ve shaped real-time tools, design systems and interactive experiences into products that feel coherent from the inside out.`
 - Primary CTA: `Explore my work`
 - Secondary CTA: `View resume`
 - Compact links: GitHub, LinkedIn, email, resume
@@ -1090,7 +1090,7 @@ The portfolio is launch-ready when:
 
 ### Most Important Content Decisions
 
-- Primary headline: `I build complex interfaces into clear, dependable products.`
+- Primary headline: `I give complex products a center of gravity.`
 - Lead identity: senior software engineer and creative technologist.
 - Core strengths: frontend architecture, product ownership, reusable systems, real-time media, interactive 3D, complex UX.
 - Featured projects should be curated, not exhaustive.

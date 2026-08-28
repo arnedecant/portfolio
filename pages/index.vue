@@ -49,9 +49,9 @@ const expertise = [
     <section class="home-hero" aria-labelledby="hero-title">
       <HeroParticleField />
       <div class="home-hero__inner">
-        <TechnicalLabel>SENIOR SOFTWARE ENGINEER · CREATIVE TECHNOLOGIST · WEB ARCHITECT</TechnicalLabel>
-        <h1 id="hero-title">I build complex interfaces into clear, dependable products.</h1>
-        <p class="home-hero__lede">Senior software engineer with 10+ years of experience building production tools, real-time experiences, design systems, and interactive 3D applications.</p>
+        <TechnicalLabel>SENIOR SOFTWARE ENGINEER · WEB ARCHITECT</TechnicalLabel>
+        <h1 id="hero-title">I give complex products a center of gravity.</h1>
+        <p class="home-hero__lede">For over a decade, I’ve shaped real-time tools, design systems and interactive experiences into products that feel coherent from the inside out.</p>
         <div class="home-hero__actions">
           <CtaButton to="#work">Explore my work</CtaButton>
           <CtaButton to="/about">Read about me</CtaButton>
