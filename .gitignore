@@ -26,3 +26,4 @@ logs
 # Generated and exploratory design references
 docs/design/
 .superpowers/
+.worktrees/
