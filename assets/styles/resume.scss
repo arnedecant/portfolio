@@ -13,6 +13,8 @@
   justify-content: space-between;
   gap: var(--space-8);
   margin-bottom: var(--space-12);
+  border-bottom: 1px solid var(--c-border-subtle);
+  padding-bottom: var(--space-8);
 }
 
 .resume-page__eyebrow,
@@ -46,7 +48,7 @@
 
 .resume-page__location {
   margin-bottom: 0;
-  color: var(--c-text-subtle);
+  color: var(--nyx-c-text-3);
   font-family: var(--font-technical);
   font-size: var(--text-technical);
   letter-spacing: 0.08em;
@@ -56,31 +58,27 @@
 .resume-page__print {
   flex: 0 0 auto;
   border: 1px solid var(--c-primary-signal);
-  padding: var(--space-3) var(--space-5);
-  background: transparent;
-  color: var(--c-text);
-  font: inherit;
-  cursor: pointer;
-}
-
-.resume-page__print:hover,
-.resume-page__print:focus-visible {
-  background: var(--c-primary-signal);
-  color: var(--c-background);
+  box-shadow: var(--signal-glow);
 }
 
 .resume-sheet {
   border-top: 1px solid var(--c-border);
+  background: color-mix(in srgb, var(--c-surface) 38%, transparent);
+  padding: 0 var(--space-8) var(--space-12);
 }
 
 .resume-section {
   border-bottom: 1px solid var(--c-border-subtle);
-  padding: var(--space-10) 0;
+  padding: var(--space-16) 0;
+}
+
+.resume-section:nth-child(odd) {
+  background: color-mix(in srgb, var(--c-surface) 28%, transparent);
 }
 
 .resume-section h2,
 .resume-sheet__contact h2 {
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
   font-size: clamp(1.65rem, 3vw, 2.5rem);
   line-height: 1.05;
 }
@@ -100,7 +98,7 @@
   display: grid;
   grid-template-columns: 9rem 1fr;
   gap: var(--space-8);
-  padding: var(--space-7) 0;
+  padding: var(--space-8) 0;
   border-top: 1px solid var(--c-border-subtle);
 }
 
@@ -111,7 +109,7 @@
 
 .resume-experience__period,
 .resume-experience__company {
-  color: var(--c-text-subtle);
+  color: var(--nyx-c-text-3);
   font-family: var(--font-technical);
   font-size: var(--text-technical);
   letter-spacing: 0.05em;
@@ -128,8 +126,12 @@
 }
 
 .resume-experience__company {
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
   color: var(--c-primary);
+}
+
+.resume-experience__item--education .resume-experience__period {
+  color: var(--nyx-c-teal);
 }
 
 .resume-experience__item p:last-of-type {
@@ -146,19 +148,9 @@
   margin-top: var(--space-2);
 }
 
-.resume-page__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(12rem, 0.65fr);
-  gap: var(--space-10);
-}
-
-.resume-page__grid .resume-section {
-  min-width: 0;
-}
-
 .resume-skills {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-6);
 }
 
 .resume-skills__group h3 {
@@ -176,7 +168,7 @@
 .resume-projects {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3) var(--space-5);
+  gap: var(--space-3) var(--space-6);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -200,7 +192,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--space-8);
-  padding: var(--space-10) 0 0;
+  padding: var(--space-16) 0 0;
 }
 
 .resume-sheet__contact h2 {
@@ -217,6 +209,10 @@
   font-size: var(--text-technical);
 }
 
+.resume-contact-links a:first-child {
+  color: var(--c-primary);
+}
+
 @media (max-width: 42rem) {
   .resume-page__intro,
   .resume-sheet__contact {
@@ -224,8 +220,11 @@
     flex-direction: column;
   }
 
-  .resume-experience__item,
-  .resume-page__grid {
+  .resume-sheet {
+    padding: 0;
+  }
+
+  .resume-experience__item {
     grid-template-columns: 1fr;
     gap: var(--space-3);
   }
@@ -247,11 +246,18 @@
 @media print {
   :root {
     color-scheme: light;
+    --c-text: #25252b;
+    --c-text-muted: #4e5058;
   }
 
-  body {
-    background: #fff !important;
-    color: #111 !important;
+  html,
+  body,
+  .site-shell {
+    background: transparent !important;
+    color: #1c1d24 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    forced-color-adjust: none;
   }
 
   .site-nav,
@@ -268,16 +274,13 @@
     width: 100%;
   }
 
-  .resume-page__intro {
-    margin-bottom: 8mm;
+  .resume-sheet,
+  .resume-section {
+    background: transparent !important;
   }
 
-  .resume-page__eyebrow,
-  .resume-section__label,
-  .resume-page__location,
-  .resume-experience__period,
-  .resume-experience__company {
-    color: #444 !important;
+  .resume-page__intro {
+    margin-bottom: 8mm;
   }
 
   .resume-page h1 {
@@ -296,7 +299,6 @@
   .resume-page p,
   .resume-page li,
   .resume-page a {
-    color: #111 !important;
     font-size: 9pt;
   }
 
@@ -325,10 +327,6 @@
 
   .resume-experience li + li {
     margin-top: 1mm;
-  }
-
-  .resume-page__grid {
-    gap: 8mm;
   }
 
   .resume-skills {

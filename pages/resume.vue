@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { NyxButton } from 'nyx-kit/components'
+
 const { data: resume } = await useAsyncData(() => queryCollection('pages').path('/pages/resume').first())
 
 const config = useAppConfig()
@@ -23,9 +25,16 @@ function printResume() {
           <p class="resume-page__title">{{ resume?.resumeTitle ?? config.site.role }}</p>
           <p class="resume-page__location">{{ resume?.resumeLocation ?? config.site.location }}</p>
         </div>
-        <button class="resume-page__print" type="button" @click="printResume">
+        <NyxButton
+          class="resume-page__print"
+          type="button"
+          theme="primary"
+          variant="outline"
+          size="lg"
+          @click="printResume"
+        >
           Print resume
-        </button>
+        </NyxButton>
       </header>
 
       <article class="resume-sheet">
@@ -35,13 +44,13 @@ function printResume() {
           <p>{{ resume.resumeSummary }}</p>
         </section>
 
-        <section v-if="resume?.resumeExperience?.length" class="resume-section" aria-labelledby="resume-experience-title">
+        <section v-if="resume?.resumeExperience?.length || resume?.resumeEducation?.length" class="resume-section" aria-labelledby="resume-experience-title">
           <div class="resume-section__heading">
-            <p class="resume-section__label">Experience</p>
-            <h2 id="resume-experience-title">Work history</h2>
+            <p class="resume-section__label">Background</p>
+            <h2 id="resume-experience-title">Work and education</h2>
           </div>
           <div class="resume-experience">
-            <article v-for="item in resume.resumeExperience" :key="`${item.company}-${item.period}`" class="resume-experience__item">
+            <article v-for="item in resume?.resumeExperience" :key="`${item.company}-${item.period}`" class="resume-experience__item">
               <p class="resume-experience__period">{{ item.period }}</p>
               <div>
                 <h3>{{ item.role }}</h3>
@@ -52,29 +61,26 @@ function printResume() {
                 </ul>
               </div>
             </article>
+            <article v-for="item in resume?.resumeEducation" :key="item" class="resume-experience__item resume-experience__item--education">
+              <p class="resume-experience__period">Education</p>
+              <div>
+                <h3>{{ item }}</h3>
+                <p>Multimedia and creative technology foundation.</p>
+              </div>
+            </article>
           </div>
         </section>
 
-        <div class="resume-page__grid">
-          <section v-if="resume?.resumeSkills?.length" class="resume-section" aria-labelledby="resume-skills-title">
-            <p class="resume-section__label">Capabilities</p>
-            <h2 id="resume-skills-title">Skills</h2>
-            <div class="resume-skills">
-              <div v-for="group in resume.resumeSkills" :key="group.title" class="resume-skills__group">
-                <h3>{{ group.title }}</h3>
-                <p>{{ group.items.join(' / ') }}</p>
-              </div>
+        <section v-if="resume?.resumeSkills?.length" class="resume-section" aria-labelledby="resume-skills-title">
+          <p class="resume-section__label">Capabilities</p>
+          <h2 id="resume-skills-title">Skills</h2>
+          <div class="resume-skills">
+            <div v-for="group in resume.resumeSkills" :key="group.title" class="resume-skills__group">
+              <h3>{{ group.title }}</h3>
+              <p>{{ group.items.join(' / ') }}</p>
             </div>
-          </section>
-
-          <section v-if="resume?.resumeEducation?.length" id="education" class="resume-section" aria-labelledby="resume-education-title">
-            <p class="resume-section__label">Foundation</p>
-            <h2 id="resume-education-title">Education</h2>
-            <ul class="resume-links">
-              <li v-for="item in resume.resumeEducation" :key="item">{{ item }}</li>
-            </ul>
-          </section>
-        </div>
+          </div>
+        </section>
 
         <section v-if="resume?.resumeProjects?.length" class="resume-section" aria-labelledby="resume-projects-title">
           <p class="resume-section__label">Selected work</p>
