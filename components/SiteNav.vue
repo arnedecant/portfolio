@@ -95,7 +95,7 @@ onBeforeUnmount(stopSectionObserver)
         <NuxtLink v-for="link in links" :key="link.to" :to="link.to" @click="closeMenu">
           {{ link.label }}
         </NuxtLink>
-        <NuxtLink v-if="config.resume" class="site-nav__resume" :to="config.resume.to" target="_blank">
+        <NuxtLink v-if="config.resume" class="site-nav__resume" :to="config.resume.to">
           {{ config.resume.label }}
         </NuxtLink>
         <SocialLinks compact class="site-nav__socials" />

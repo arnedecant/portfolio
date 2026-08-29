@@ -21,6 +21,24 @@ const expertise = z.object({
   items: z.array(z.string()),
 })
 
+const resumeLink = z.object({
+  label: z.string(),
+  to: z.string(),
+})
+
+const resumeExperience = z.object({
+  period: z.string(),
+  company: z.string(),
+  role: z.string(),
+  summary: z.string(),
+  highlights: z.array(z.string()).default([]),
+})
+
+const resumeSkillGroup = z.object({
+  title: z.string(),
+  items: z.array(z.string()),
+})
+
 export default defineContentConfig({
   collections: {
     pages: defineCollection({
@@ -61,6 +79,15 @@ export default defineContentConfig({
         contactLinkedInLabel: z.string().optional(),
         contactGitHubLabel: z.string().optional(),
         contactLocation: z.string().optional(),
+        resumeTitle: z.string().optional(),
+        resumeLocation: z.string().optional(),
+        resumeEmail: z.string().optional(),
+        resumeLinks: z.array(resumeLink).default([]),
+        resumeSummary: z.string().optional(),
+        resumeExperience: z.array(resumeExperience).default([]),
+        resumeSkills: z.array(resumeSkillGroup).default([]),
+        resumeEducation: z.array(z.string()).default([]),
+        resumeProjects: z.array(resumeLink).default([]),
       }),
     }),
 
