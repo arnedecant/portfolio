@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title description">
+  <title id="title">Abstract portrait placeholder</title>
+  <desc id="description">Layered orbital signal lines on a dark field, reserved for an optional personal portrait.</desc>
+  <rect width="1200" height="1500" fill="#0c0e14"/>
+  <circle cx="650" cy="655" r="330" fill="#12131a" stroke="#3e484f" stroke-width="2"/>
+  <circle cx="650" cy="655" r="235" fill="none" stroke="#38bdf8" stroke-opacity=".5" stroke-width="2"/>
+  <ellipse cx="650" cy="655" rx="440" ry="170" fill="none" stroke="#d0bcff" stroke-opacity=".35" stroke-width="2" transform="rotate(-28 650 655)"/>
+  <ellipse cx="650" cy="655" rx="470" ry="115" fill="none" stroke="#8ed5ff" stroke-opacity=".28" stroke-width="1" transform="rotate(38 650 655)"/>
+  <path d="M150 1100h900M260 1160h680M360 1220h480" fill="none" stroke="#3e484f" stroke-width="1"/>
+  <path d="M500 350v610M650 280v750M800 350v610" fill="none" stroke="#3e484f" stroke-opacity=".45" stroke-width="1"/>
+  <circle cx="380" cy="520" r="7" fill="#f59e0b"/>
+  <circle cx="850" cy="790" r="6" fill="#38bdf8"/>
+  <text x="80" y="1370" fill="#bdc8d1" font-family="monospace" font-size="24" letter-spacing="4">PORTRAIT / OPTIONAL</text>
+</svg>

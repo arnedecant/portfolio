@@ -48,6 +48,7 @@ export default defineContentConfig({
         title: z.string(),
         slug: z.string().optional(),
         eyebrow: z.string().optional(),
+        portrait: image.optional(),
         seoDescription: z.string().optional(),
         heroLabel: z.string().optional(),
         heroTitle: z.string().optional(),
