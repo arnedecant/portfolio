@@ -126,9 +126,6 @@ useSeoMeta({
 }
 
 .about-page__content :deep(h2) {
-  display: grid;
-  grid-template-columns: minmax(7rem, 1fr) minmax(0, 3fr);
-  gap: var(--space-8);
   margin: clamp(6rem, 12vw, 11rem) 0 var(--space-8);
   padding-top: var(--space-4);
   border-top: 1px solid var(--c-border-subtle);
@@ -136,21 +133,9 @@ useSeoMeta({
   line-height: 1.05;
 }
 
-.about-page__content :deep(h2::before) {
-  padding-top: 0.35rem;
-  color: var(--c-primary);
-  content: 'SECTION';
-  font-family: var(--font-technical);
-  font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-}
-
 .about-page__content :deep(h3) {
   max-width: 48rem;
   margin: clamp(3rem, 7vw, 6rem) 0 var(--space-4);
-  padding-left: var(--space-6);
-  border-left: 1px solid var(--c-primary);
   color: var(--c-text);
   font-family: var(--font-technical);
   font-size: clamp(0.9rem, 1.5vw, 1.1rem);
@@ -160,21 +145,58 @@ useSeoMeta({
   text-transform: uppercase;
 }
 
-.about-page__content :deep(h3 + p),
-.about-page__content :deep(h3 + ul) {
-  margin-left: clamp(0rem, 8vw, 8rem);
-}
-
 .about-page__content :deep(ul) {
+  list-style: none;
   margin-top: var(--space-4);
   margin-bottom: var(--space-8);
-  padding-left: 1.25rem;
+  padding-left: 0;
   color: var(--c-text-muted);
 }
 
 .about-page__content :deep(li) {
-  padding-left: var(--space-2);
+  position: relative;
+  padding-left: 2rem;
   margin-bottom: var(--space-2);
+}
+
+.about-page__content :deep(li::before) {
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 0.75rem;
+  height: 1px;
+  background: var(--c-primary);
+  box-shadow: 0.375rem 0 0 var(--nyx-c-teal);
+  content: '';
+}
+
+.about-page__content :deep(blockquote) {
+  position: relative;
+  max-width: 48rem;
+  margin: clamp(4rem, 8vw, 7rem) 0;
+  padding: var(--space-6) 0 var(--space-6) clamp(2rem, 6vw, 5rem);
+  border-top: 1px solid var(--c-border-subtle);
+  border-bottom: 1px solid var(--c-border-subtle);
+  color: var(--c-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.25;
+}
+
+.about-page__content :deep(blockquote::before) {
+  position: absolute;
+  top: var(--space-6);
+  left: 0;
+  color: var(--c-primary);
+  content: '“';
+  font-size: 3.5rem;
+  line-height: 0.8;
+}
+
+.about-page__content :deep(blockquote p) {
+  margin: 0;
+  color: inherit;
+  font: inherit;
 }
 
 .about-page__content :deep(a) {
@@ -215,14 +237,8 @@ useSeoMeta({
     font-size: clamp(2.25rem, 12vw, 3.5rem);
   }
 
-  .about-page__content :deep(h2::before) {
-    display: block;
-    margin-bottom: var(--space-4);
-  }
-
-  .about-page__content :deep(h3 + p),
-  .about-page__content :deep(h3 + ul) {
-    margin-left: var(--space-4);
+  .about-page__content :deep(blockquote) {
+    padding-left: 2rem;
   }
 }
 
