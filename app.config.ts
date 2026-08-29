@@ -34,5 +34,8 @@ export default defineAppConfig({
       ariaLabel: 'Arne Decant on Instagram',
     },
   ],
-  resume: null,
+  resume: {
+    label: 'Resume',
+    to: '/resume',
+  },
 })

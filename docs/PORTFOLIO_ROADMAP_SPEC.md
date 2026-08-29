@@ -812,6 +812,40 @@ Add the atmospheric, interactive qualities that make the portfolio distinctive, 
 - Test with WebGL unavailable or script disabled enough to confirm fallback content still works.
 - Inspect mobile performance on a throttled or lower-power browser profile if possible.
 
+## Phase 3.5 - Web Resume And Print Layout
+
+### Objective
+
+Add a web-first resume page that presents current experience clearly online and produces a useful two-page A4 document through the browser print dialog.
+
+### Tasks
+
+- Add a dedicated `/resume` route backed by structured fields in `content/pages/resume.md`.
+- Use the 2020 resume as historical input and current repository content as the source for updated experience.
+- Render a concise profile, work history, grouped skills, education, selected projects, and contact links.
+- Add a keyboard-accessible print action that invokes `window.print()`.
+- Add responsive screen styling using the existing Nyx design tokens and typography.
+- Add print CSS targeting A4 portrait, hiding navigation, footer, action controls, and decorative chrome.
+- Preserve readable links in print output and avoid splitting experience entries across pages where possible.
+- Do not include a phone number or generate a downloadable PDF.
+
+### Acceptance Criteria
+
+- `/resume` renders from validated Nuxt Content data.
+- The page is readable and responsive on desktop and mobile.
+- The print action opens the browser print dialog.
+- Print preview hides non-resume UI and produces a usable two-page A4 result.
+- Resume content contains no unvalidated or invented claims and no phone number.
+- Keyboard users can reach and activate the print action.
+- The route has appropriate page metadata.
+
+### Verification
+
+- Run `pnpm build`.
+- Run `pnpm generate`.
+- Manually inspect the screen layout and print preview on desktop and mobile.
+- Check link visibility, page breaks, keyboard activation, and output without relying on a checked-in PDF.
+
 ## Phase 4 - Project Index And Case Studies
 
 ### Objective
