@@ -210,6 +210,12 @@ useSeoMeta({
   text-decoration-color: var(--c-text);
 }
 
+.about-page__content :deep(#beyond-code ~ * strong) {
+  color: var(--nyx-c-teal);
+  font-weight: 650;
+  text-shadow: 0 0 1rem color-mix(in srgb, var(--nyx-c-teal) 18%, transparent);
+}
+
 @media (max-width: 48em) {
   .about-page {
     padding-top: 4rem;

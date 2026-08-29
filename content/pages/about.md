@@ -97,4 +97,4 @@ I regularly disappear into internet rabbit holes about **psychology** and **biol
 
 I also have a soft spot for **Lovecraftian horror**, **fractals**, and especially **Mandelbulbs**. They all play with the same tension between pattern and the unknowable: something can be intricate enough to invite close inspection while remaining strange enough to resist becoming familiar. That balance between structure and mystery is probably part of why I enjoy both engineering and creative experiments.
 
-This portfolio is a place to **get to know me**, see what I have worked on, and explore the kind of problems and projects that keep me curious. I am happiest when there is something complicated to make clearer, and something new to learn along the way.
+This portfolio is a place to get to know me, see what I have worked on, and explore the kind of problems and projects that keep me curious. I am happiest when there is something complicated to make clearer, and something new to learn along the way.
