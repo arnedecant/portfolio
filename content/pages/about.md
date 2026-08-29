@@ -84,11 +84,17 @@ I also like poking at smaller WebGL and audio-reactive experiments whenever some
 
 ## Beyond code
 
-I am not only about components and layouts. When I am not deep in front-end work, you will probably find me:
+I am not only about components and layouts. I am drawn to things that resist being understood all at once: living systems, strange forms of intelligence, recursive patterns, and the uneasy spaces where the familiar becomes alien.
+
+When I am not deep in front-end work, you will probably find me:
 - listening to or exploring new **music**
 - **gaming**, often over-analysing UI and interaction patterns along the way
 - exploring **art and tech**, where creativity and code meet
 - working on **home automation** and self-hosted systems
 - hanging out with my dogs, **Yuki & Shiro**, who have strong opinions about break times
+
+I regularly disappear into internet rabbit holes about **psychology** and **biology**, even though my actual knowledge of either is modest. That is part of the appeal: there is always another mechanism, behaviour, or odd connection that makes the world feel larger than I thought it was. **Animals** fascinate me in general, and octopuses in particular. Their intelligence feels completely unlike ours, which makes them difficult to stop thinking about. **Mushrooms and fungi** have the same pull for me: quiet, strange, interconnected life forms that seem to follow rules we only partly understand.
+
+I also have a soft spot for **Lovecraftian horror**, **fractals**, and especially **Mandelbulbs**. They all play with the same tension between pattern and the unknowable: something can be intricate enough to invite close inspection while remaining strange enough to resist becoming familiar. That balance between structure and mystery is probably part of why I enjoy both engineering and creative experiments.
 
 This portfolio is a place to **get to know me**, see what I have worked on, and explore the kind of problems and projects that keep me curious. I am happiest when there is something complicated to make clearer, and something new to learn along the way.
