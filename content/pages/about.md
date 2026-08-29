@@ -12,7 +12,7 @@ I'm Arne, a Belgium-based senior software engineer with more than a decade of ex
 
 My work sits between engineering, interaction design, and product thinking. I care about how something looks, how it behaves, and whether the structure underneath will still make sense when the product has to evolve.
 
-> I like complex systems best when the complexity is doing useful work, not asking the user to carry it.
+> I am usually happiest one layer away from the mess: turning a live production workflow, a room full of screens, or a physical object pretending to be a button into something people can actually use.
 
 ## A gradual move toward the front end
 
@@ -68,7 +68,7 @@ I do not only ask “how do we build this?” but also “why are we building th
 
 What keeps me motivated is that the products I work on are live and alive. They evolve. Knowing that decisions I make today will either pay off or come back to haunt me makes me care about structure, quality, and UX.
 
-> The best work is rarely a single clever solution. It is a series of decisions that keep making sense as the product grows.
+> A layout bug is rarely just a layout bug. It is often a small, visible symptom of a decision made somewhere else.
 
 ## Side projects and creative experiments
 
